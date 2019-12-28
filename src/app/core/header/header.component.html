@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+    <span>
+  <a id="poke" routerLink="/">
+    <!-- <mat-icon svgIcon="icono-pokeball"></mat-icon> -->
+    <img style="width: 30px;height:30px" [src]="watermelon" />
+  </a>
+</span>
+    <span class="spacer"></span>
+    <ul>
+
+        <li>
+            <a mat-button routerLink="/pokemon" routerLinkActive="mat-accent">
+                <img style="width: 30px;height:30px" [src]="cart" />
+            </a>
+        </li>
+        <li>
+            <a mat-button routerLink="/">
+                <img style="width: 30px;height:30px" [src]="in" />
+            </a>
+        </li>
+        <li></li>
+    </ul>
+</mat-toolbar>
