@@ -22,7 +22,7 @@
     flex-direction: column;
     position: absolute;
     top: -90px;
-    // background: slateblue;
+    width: 75%;
     left: 100px;
 }
 
@@ -50,4 +50,9 @@
     margin-top: $talla-m;
     font-size: 20px;
     color: lightslategrey;
+}
+
+.nav {
+    width: 100%;
+    background: lightslategrey;
 }
