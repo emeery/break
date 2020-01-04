@@ -1,0 +1,14 @@
+@import "../../../styles/vars";
+.mat-card {
+    background: #15202b;
+    color: aliceblue;
+    border-bottom: .5px solid lightgray;
+}
+
+.mat-card-actions {
+    padding: none;
+}
+
+.ls {
+    color: $ls;
+}
