@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Tweet} from '../models/tweet';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+// import {Tweet} from '../models/tweet';
+import { TweetsService } from 'src/app/services/tweets.service';
+import { Tweet } from 'src/app/models/tweet';
+import { Subscription } from 'rxjs';
 // class Tweet {
 //   description: string;
 //   user: boolean
@@ -9,16 +12,22 @@ import {Tweet} from '../models/tweet';
   templateUrl: './tweets.component.html',
   styleUrls: ['./tweets.component.scss']
 })
-export class TweetsComponent implements OnInit {
-  public tweets: Tweet[] =  [
-    new Tweet('Typically said to indicate that any further investigation into a situation may lead to harm.', false, 'Jerry'),
-    new Tweet('The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.', true, 'Emma'),
-    new Tweet(' A rhetorical question used by a person who feels they are being given less consideration than someone else', false, 'Peter')
-  ];
-  constructor() { }
+export class TweetsComponent implements OnInit, OnDestroy {
+  tweets: Tweet[] = [];
+  private tweetSubs: Subscription;
+  constructor(public tServ: TweetsService) { }
 
   ngOnInit() {
-    console.log('tw', this.tweets);
+    this.getTweets();
   }
-
+  getTweets() {
+    this.tServ.getTweets();
+    this.tweetSubs = this.tServ.getTweetListener()
+    .subscribe((twt: Tweet[]) => {
+      this.tweets = twt;
+    });
+  }
+  ngOnDestroy() {
+    this.tweetSubs.unsubscribe();
+  }
 }

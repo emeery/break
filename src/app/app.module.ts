@@ -12,6 +12,7 @@ import { AppRoutingModule } from './routes/app.routing.module';
 import { AnswersComponent } from './components/nv/answers/answers.component';
 import { MediaComponent } from './components/nv/media/media.component';
 import { LikesComponent } from './components/nv/likes/likes.component';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LikesComponent } from './components/nv/likes/likes.component';
     BrowserModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
