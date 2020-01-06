@@ -13,20 +13,25 @@ export class TweetsService {
   getTweets() {
     this.http.get<{mensaje: string; tweets: any}>(
       'http://localhost:8090/tweet')
-    // .pipe(
-    //   map((res) => {
-    //     return res.tweets.map(t => {
-    //       return {
-    //           descripcion: t.descripcion,
-    //           completado: t.completado
-    //       };
-    //     });
-    //   })
-    // )
+    .pipe(
+      map((res) => {
+        return res.tweets.map(t => {
+          return {
+              id: t._id,
+              descripcion: t.descripcion,
+              completado: t.completado
+          };
+        });
+      })
+    )
     .subscribe(twtD => {
-      this.tweets = twtD.tweets;
+      this.tweets = twtD;
       this.tweetChanged.next([...this.tweets]);
     });
+  }
+  deleteTweet(id: string) {
+    return this.http.delete<{mensaje: string}>(
+      'http://localhost:8090/tweet/' + id);
   }
   getTweetListener() {
     return this.tweetChanged.asObservable();

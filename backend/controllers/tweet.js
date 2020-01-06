@@ -27,8 +27,19 @@ router.get('', async(req, res) => {
             mensaje: 'todos los tweets',
             tweets
         });
-    } catch (e) {
-
-    }
+    } catch (e) { res.status(500).send() }
+});
+router.delete('/:id', async(req, res) => {
+    try {
+        const t = await Tweet.findOneAndDelete({
+            _id: req.params.id,
+        })
+        if (!t) {
+            return res.status(404).json({
+                mensaje: 'no autorizado'
+            })
+        }
+        res.status(200).json({ mensaje: 'perfil eliminado' })
+    } catch (e) { res.status(500).send() }
 });
 module.exports = router

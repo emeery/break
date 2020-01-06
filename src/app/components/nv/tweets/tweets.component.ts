@@ -25,6 +25,12 @@ export class TweetsComponent implements OnInit, OnDestroy {
     this.tweetSubs = this.tServ.getTweetListener()
     .subscribe((twt: Tweet[]) => {
       this.tweets = twt;
+      console.log('tt', this.tweets);
+    });
+  }
+  onDelete(tweetId: string) {
+    this.tServ.deleteTweet(tweetId).subscribe(() => {
+      this.tServ.getTweets();
     });
   }
   ngOnDestroy() {

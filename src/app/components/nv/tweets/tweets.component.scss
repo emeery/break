@@ -5,6 +5,13 @@
     border-bottom: .5px solid lightgray;
 }
 
+.mat-card p {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 10vw;
+    text-align: center;
+    color: lightslategray;
+}
+
 .mat-card-actions {
     padding: none;
 }

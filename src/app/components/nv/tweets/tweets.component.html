@@ -12,7 +12,7 @@
             <button mat-button>
       <mat-icon>favorite</mat-icon>
     </button>
-            <button mat-button>SHARE</button>
+            <button (click)="onDelete(film.id)" mat-button>X</button>
         </mat-card-actions>
     </mat-card>
 </mat-card>
@@ -21,7 +21,7 @@
     <mat-card class="sin">
         <mat-card-content>
             <p>
-                No hay perfiles
+                crea un tuit.
             </p>
         </mat-card-content>
     </mat-card>
