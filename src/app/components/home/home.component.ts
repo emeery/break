@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { AddTweetComponent } from '../nv/tweets/addtweet.component';
+import { AddtweetComponent } from '../addtweet/addtweet.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +15,6 @@ export class HomeComponent implements OnInit {
     this.pen = '../../../assets/images/png/edit.png';
   }
   addTweet() {
-   this.dlg.open(AddTweetComponent, {panelClass: 'custom-add'});
+   this.dlg.open(AddtweetComponent, {panelClass: 'custom-dd'});
   }
 }

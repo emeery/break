@@ -3,7 +3,6 @@ import { TweetsService } from 'src/app/services/tweets.service';
 import { Tweet } from 'src/app/models/tweet';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
-import {AddTweetComponent} from './addtweet.component';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
