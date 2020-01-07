@@ -13,6 +13,7 @@ import { AnswersComponent } from './components/nv/answers/answers.component';
 import { MediaComponent } from './components/nv/media/media.component';
 import { LikesComponent } from './components/nv/likes/likes.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { AddTweetComponent } from './components/nv/tweets/addtweet.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import {  HttpClientModule } from '@angular/common/http';
     TweetsComponent,
     AnswersComponent,
     MediaComponent,
-    LikesComponent
+    LikesComponent,
+    AddTweetComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import {  HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [], entryComponents: [AddTweetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-// import {Tweet} from '../models/tweet';
 import { TweetsService } from 'src/app/services/tweets.service';
 import { Tweet } from 'src/app/models/tweet';
 import { Subscription } from 'rxjs';
-// class Tweet {
-//   description: string;
-//   user: boolean
-// }
+import { MatDialog } from '@angular/material';
+import {AddTweetComponent} from './addtweet.component';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
@@ -15,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class TweetsComponent implements OnInit, OnDestroy {
   tweets: Tweet[] = [];
   private tweetSubs: Subscription;
-  constructor(public tServ: TweetsService) { }
+  constructor(public tServ: TweetsService, public dlg: MatDialog) { }
 
   ngOnInit() {
     this.getTweets();
@@ -33,6 +30,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
       this.tServ.getTweets();
     });
   }
+
   ngOnDestroy() {
     this.tweetSubs.unsubscribe();
   }
