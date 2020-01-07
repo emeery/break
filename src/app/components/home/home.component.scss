@@ -34,6 +34,11 @@
     background-size: cover;
 }
 
+button {
+    // width: 100%;
+    font-size: 3vw;
+}
+
 .intro {
     font-size: $talla-l;
     color: cadetblue;
@@ -48,6 +53,28 @@
     margin-top: $talla-m;
     font-size: 20px;
     color: lightslategrey;
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 50px;
+    height: 50px
+}
+
+button {
+    font-size: 2vw;
+    width: 150px;
+    border: 2px solid mediumaquamarine;
+    color: ivory;
+}
+
+.pro_header .col :nth-child(1) {
+    cursor: pointer;
+}
+
+.pro_header .col :nth-child(1) :hover {
+    background: blueviolet;
 }
 
 .nav {

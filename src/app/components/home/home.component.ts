@@ -6,8 +6,10 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
-  ngOnInit() {
+  pen: string;
+  constructor() {}
 
+  ngOnInit() {
+    this.pen = '../../../assets/images/png/edit.png';
   }
 }
