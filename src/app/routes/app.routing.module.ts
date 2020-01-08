@@ -9,7 +9,7 @@ import { LikesComponent } from '../components/nv/likes/likes.component';
 
 
 const rutas: Routes = [
-    {path: '', component: AppComponent},
+    {path: '', redirectTo: '/tweets', pathMatch: 'full'},
     // {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
     {path: 'tweets', component: TweetsComponent},
     {path: 'replies', component: AnswersComponent},

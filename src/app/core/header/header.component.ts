@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { LoginComponent } from 'src/app/auth/login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   watermelon: string;
-  cart: string;
+  signup: string;
   in: string;
-  constructor() {
+  constructor(private dlg: MatDialog) {
   }
 
   ngOnInit() {
     this.watermelon = '../../../assets/images/png/watermelon.png';
-    this.cart = '../../../assets/images/png/cart.png';
-    this.in = '../../../assets/images/png/enter.png';
+    this.in = '../../../assets/images/png/back.png';
+    this.signup = '../../../assets/images/png/next.png';
   }
-
+  onLogin() {
+    this.dlg.open(LoginComponent);
+  }
 }

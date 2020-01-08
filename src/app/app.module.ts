@@ -15,6 +15,8 @@ import { LikesComponent } from './components/nv/likes/likes.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { AddtweetComponent } from './components/addtweet/addtweet.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MediaComponent,
     LikesComponent,
     AddtweetComponent,
+    SignupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FormsModule,
   ],
   providers: [],
-  entryComponents: [ AddtweetComponent],
+  entryComponents: [ AddtweetComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

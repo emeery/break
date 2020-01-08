@@ -7,15 +7,14 @@
 </span>
     <span class="spacer"></span>
     <ul>
-
-        <li>
-            <a mat-button routerLink="/pokemon" routerLinkActive="mat-accent">
-                <!-- <img style="width: 30px;height:30px" [src]="cart" /> -->
-            </a>
-        </li>
         <li>
             <a mat-button routerLink="/">
                 <img style="width: 30px;height:30px" [src]="in" />
+            </a>
+        </li>
+        <li>
+            <a (click)="onLogin()" mat-button routerLink="/">
+                <img style="width: 30px;height:30px" [src]="signup" />
             </a>
         </li>
         <li></li>
