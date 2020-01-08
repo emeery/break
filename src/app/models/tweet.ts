@@ -9,7 +9,6 @@ export class Tweet {
     id: string,
     descripcion: string,
     like: boolean,
-    user: string
     ) {
       this.id = id;
       this.descripcion = descripcion;

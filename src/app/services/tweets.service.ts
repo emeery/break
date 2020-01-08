@@ -29,6 +29,16 @@ export class TweetsService {
       this.tweetChanged.next([...this.tweets]);
     });
   }
+  addTweet(title: string) {
+    const tweetData: Tweet = {id: null, descripcion: title, like: false};
+    // console.log('t',tweet);
+    this.http.post('http://localhost:8090/tweet', tweetData)
+    .subscribe(res => {
+      this.getTweets();
+
+    });
+
+  }
   deleteTweet(id: string) {
     return this.http.delete<{mensaje: string}>(
       'http://localhost:8090/tweet/' + id);

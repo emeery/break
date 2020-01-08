@@ -13,7 +13,6 @@ import { AnswersComponent } from './components/nv/answers/answers.component';
 import { MediaComponent } from './components/nv/media/media.component';
 import { LikesComponent } from './components/nv/likes/likes.component';
 import {  HttpClientModule } from '@angular/common/http';
-import { AddTweetComponent } from './components/nv/tweets/addtweet.component';
 import { AddtweetComponent } from './components/addtweet/addtweet.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 

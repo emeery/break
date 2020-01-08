@@ -6,7 +6,7 @@ const router = express.Router()
 router.post('', async(req, res) => {
     const tweet = new Tweet({
         descripcion: req.body.descripcion,
-        completo: req.body.completo
+        completo: false
     })
     try {
         await tweet.save()
