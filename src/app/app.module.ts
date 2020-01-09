@@ -17,6 +17,7 @@ import { AddtweetComponent } from './components/addtweet/addtweet.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
+import { EdittweetComponent } from './components/edittweet/edittweet.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoginComponent } from './auth/login/login.component';
     AddtweetComponent,
     SignupComponent,
     LoginComponent,
+    EdittweetComponent,
   ],
   imports: [
     BrowserModule,

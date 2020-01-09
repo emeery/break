@@ -12,6 +12,7 @@ const rutas: Routes = [
     {path: '', redirectTo: '/tweets', pathMatch: 'full'},
     // {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
     {path: 'tweets', component: TweetsComponent},
+    {path: 'tweets/:tweetId', component: TweetsComponent},
     {path: 'replies', component: AnswersComponent},
     {path: 'media', component: MediaComponent},
     {path: 'likes', component: LikesComponent},

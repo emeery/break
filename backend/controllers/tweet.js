@@ -29,6 +29,12 @@ router.get('', async(req, res) => {
         });
     } catch (e) { res.status(500).send() }
 });
+router.get('/:id', async(req, res) => {
+    try {
+        const tweet = await Tweet.findById(req.params.id);
+        if (tweet) { res.status(200).json(tweet) }
+    } catch (e) { res.status(500).send() }
+});
 router.delete('/:id', async(req, res) => {
     try {
         const t = await Tweet.findOneAndDelete({

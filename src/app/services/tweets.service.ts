@@ -37,7 +37,6 @@ export class TweetsService {
       this.getTweets();
 
     });
-
   }
   deleteTweet(id: string) {
     return this.http.delete<{mensaje: string}>(

@@ -1,18 +1,15 @@
 <mat-card *ngIf="tweets.length > 0; else notFirst">
-    <mat-card *ngFor="let film of tweets">
-        <mat-card-header>
-            <mat-card-title>{{film.user}}</mat-card-title>
-        </mat-card-header>
+    <mat-card *ngFor="let t of tweets">
+
         <mat-card-content>
 
-            {{film.descripcion}}
+            {{t.descripcion}}
 
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button>
-      <mat-icon>favorite</mat-icon>
-    </button>
-            <button (click)="onDelete(film.id)" mat-button>X</button>
+            <button (click)="onEdit(t.id)" mat-button>EDIT</button>
+
+            <button (click)="onDelete(t.id)" mat-button>X</button>
         </mat-card-actions>
     </mat-card>
 </mat-card>
