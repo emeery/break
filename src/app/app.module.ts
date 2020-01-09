@@ -42,7 +42,7 @@ import { LoginComponent } from './auth/login/login.component';
     FormsModule,
   ],
   providers: [],
-  entryComponents: [ AddtweetComponent, LoginComponent],
+  entryComponents: [ AddtweetComponent, LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

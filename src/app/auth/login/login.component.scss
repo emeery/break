@@ -1,3 +1,4 @@
+@import '../../styles/vars';
 .placeholder {
     color: lightgreen;
 }
@@ -15,4 +16,8 @@
     .mat-input-element {
         color: #ff884d;
     }
+}
+
+button {
+    color: $cl;
 }

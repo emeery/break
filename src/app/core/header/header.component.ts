@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from 'src/app/auth/login/login.component';
+import { SignupComponent } from 'src/app/auth/signup/signup.component';
 
 @Component({
   selector: 'app-header',
@@ -21,5 +22,8 @@ export class HeaderComponent implements OnInit {
   }
   onLogin() {
     this.dlg.open(LoginComponent);
+  }
+  onSignup() {
+    this.dlg.open(SignupComponent);
   }
 }
