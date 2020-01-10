@@ -6,7 +6,6 @@ const router = express.Router()
 router.post('', async(req, res) => {
     const tweet = new Tweet({
         descripcion: req.body.descripcion,
-        completo: false
     })
     try {
         await tweet.save()
@@ -15,7 +14,6 @@ router.post('', async(req, res) => {
             tweet: {
                 id: tweet._id,
                 descripcion: tweet.descripcion,
-                completo: tweet.completo,
             }
         })
     } catch (e) { res.status(400).send(e) }
@@ -32,6 +30,7 @@ router.get('', async(req, res) => {
 router.get('/:id', async(req, res) => {
     try {
         const tweet = await Tweet.findById(req.params.id);
+        // console.log('tet', tweet);
         if (tweet) { res.status(200).json(tweet) }
     } catch (e) { res.status(500).send() }
 });

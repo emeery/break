@@ -19,7 +19,6 @@ export class TweetsService {
           return {
               id: t._id,
               descripcion: t.descripcion,
-              completado: t.completado
           };
         });
       })
@@ -30,13 +29,22 @@ export class TweetsService {
     });
   }
   addTweet(title: string) {
-    const tweetData: Tweet = {id: null, descripcion: title, like: false};
+    const tweetData: Tweet = {id: null, descripcion: title};
     // console.log('t',tweet);
     this.http.post('http://localhost:8090/tweet', tweetData)
     .subscribe(res => {
       this.getTweets();
-
     });
+  }
+  getTweet(ide: string) {
+    return this.http
+    .get<{_id: string, descripcion: any }>(
+      'http://localhost:8090/tweet/' + ide)
+      .pipe(
+        map((res) => {
+          return {id: res._id, descripcion: res.descripcion};
+        })
+      );
   }
   deleteTweet(id: string) {
     return this.http.delete<{mensaje: string}>(

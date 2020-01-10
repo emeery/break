@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { TweetsService } from 'src/app/services/tweets.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { Tweet } from 'src/app/models/tweet';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-edittweet',
@@ -6,10 +10,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edittweet.component.scss']
 })
 export class EdittweetComponent implements OnInit {
-
-  constructor() { }
+  private perfilId: string;
+  // private tweet: Tweet;
+  tweetForm: FormGroup;
+  constructor(
+    public tService: TweetsService,
+    private formBuilder: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private dialogRef: MatDialogRef<EdittweetComponent>) {
+      this.perfilId = this.data;
+    }
 
   ngOnInit() {
+    this.initForma();
+    this.tService.getTweet(this.data.id)
+    .subscribe(dta => {
+      this.tweetForm.setValue({
+        descripcion: dta.descripcion
+      });
+    });
+  }
+  private initForma() {
+    this.tweetForm = this.formBuilder.group({
+      descripcion: ['', Validators.required]
+    });
   }
 
 }

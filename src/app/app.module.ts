@@ -44,7 +44,7 @@ import { EdittweetComponent } from './components/edittweet/edittweet.component';
     FormsModule,
   ],
   providers: [],
-  entryComponents: [ AddtweetComponent, LoginComponent, SignupComponent],
+  entryComponents: [ AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
