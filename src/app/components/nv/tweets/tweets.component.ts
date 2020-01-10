@@ -13,6 +13,7 @@ import { EdittweetComponent } from '../../edittweet/edittweet.component';
 export class TweetsComponent implements OnInit, OnDestroy {
   tweets: Tweet[] = [];
   private tweetSubs: Subscription;
+  cargando = false;
   constructor(
     public tService: TweetsService,
     public dlg: MatDialog,
@@ -20,25 +21,24 @@ export class TweetsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getTweets();
-    // this.route.paramMap.subscribe((pM: ParamMap) => {
-    //   if(pM.has('tweetId')) {}
-    // });
   }
   getTweets() {
     this.tService.getTweets();
-    this.tweetSubs = this.tService.getTweetListener()
+    this.cargando = true;
+    this.tweetSubs =
+    this.tService.getTweetListener()
     .subscribe((twt: Tweet[]) => {
+      this.cargando = false;
       this.tweets = twt;
       console.log('tt', this.tweets);
     });
   }
   onEdit(tweetId: string) {
-    this.tService.getTweet(tweetId).subscribe(twet => {
-      // console.log('tweet', twet);
-    })
+    this.tService.getTweet(tweetId)
+    .subscribe(twet => {
+
+    });
     this.dlg.open(EdittweetComponent, {data: {id: tweetId }});
-
-
   }
   onDelete(tweetId: string) {
     this.tService.deleteTweet(tweetId).subscribe(() => {

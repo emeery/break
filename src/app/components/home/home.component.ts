@@ -13,8 +13,6 @@ export class HomeComponent implements OnInit {
   constructor(public dlg: MatDialog) {}
 
   ngOnInit() {
-    // this.setForm();
-    this.pen = '../../../assets/images/png/edit.png';
   }
   addTweet(): void {
    const dlgRef = this.dlg.open(AddtweetComponent);
