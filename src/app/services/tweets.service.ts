@@ -46,6 +46,14 @@ export class TweetsService {
         })
       );
   }
+  editTweet(id: string, desc: string) {
+    const tweet: Tweet = {id, descripcion: desc};
+    this.http.put('http://localhost:8090/tweet/' + id, tweet)
+    .subscribe(res => {
+      // console.log('res', res);
+      this.getTweets();
+    } );
+  }
   deleteTweet(id: string) {
     return this.http.delete<{mensaje: string}>(
       'http://localhost:8090/tweet/' + id);

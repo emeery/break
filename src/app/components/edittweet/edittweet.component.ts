@@ -17,14 +17,13 @@ export class EdittweetComponent implements OnInit {
     public tService: TweetsService,
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<EdittweetComponent>) {
-      this.perfilId = this.data;
-    }
+    private dialogRef: MatDialogRef<EdittweetComponent>) {}
 
   ngOnInit() {
     this.initForma();
     this.tService.getTweet(this.data.id)
     .subscribe(dta => {
+      this.perfilId = dta.id;
       this.tweetForm.setValue({
         descripcion: dta.descripcion
       });
@@ -35,5 +34,12 @@ export class EdittweetComponent implements OnInit {
       descripcion: ['', Validators.required]
     });
   }
+  onSubmit() {
+    this.tService.editTweet(
+      this.perfilId,
+      this.tweetForm.value.descripcion
+    );
+    this.dialogRef.close();
 
+  }
 }

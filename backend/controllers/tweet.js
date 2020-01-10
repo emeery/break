@@ -10,7 +10,7 @@ router.post('', async(req, res) => {
     try {
         await tweet.save()
         res.status(201).json({
-            mensaje: "agregado correctamente",
+            mensaje: 'tweet agregado',
             tweet: {
                 id: tweet._id,
                 descripcion: tweet.descripcion,
@@ -30,9 +30,20 @@ router.get('', async(req, res) => {
 router.get('/:id', async(req, res) => {
     try {
         const tweet = await Tweet.findById(req.params.id);
-        // console.log('tet', tweet);
         if (tweet) { res.status(200).json(tweet) }
     } catch (e) { res.status(500).send() }
+});
+router.put('/:id', async(req, res) => {
+    try {
+        const newTweet = new Tweet({
+            _id: req.body.id,
+            descripcion: req.body.descripcion
+        })
+        const tt = await Tweet.updateOne({ _id: req.params.id }, newTweet);
+        res.status(200).json({ mensaje: 'tweet actualizado' })
+    } catch (error) {
+
+    }
 });
 router.delete('/:id', async(req, res) => {
     try {
@@ -44,7 +55,7 @@ router.delete('/:id', async(req, res) => {
                 mensaje: 'no autorizado'
             })
         }
-        res.status(200).json({ mensaje: 'perfil eliminado' })
+        res.status(200).json({ mensaje: 'tweet eliminado' })
     } catch (e) { res.status(500).send() }
 });
 module.exports = router
