@@ -19,7 +19,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { EdittweetComponent } from './components/edittweet/edittweet.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { MatVideoModule } from 'mat-video';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +44,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    MatVideoModule
   ],
   providers: [],
   entryComponents: [ AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
