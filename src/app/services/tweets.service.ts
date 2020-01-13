@@ -30,7 +30,6 @@ export class TweetsService {
   }
   addTweet(title: string) {
     const tweetData: Tweet = {id: null, descripcion: title};
-    // console.log('t',tweet);
     this.http.post('http://localhost:8090/tweet', tweetData)
     .subscribe(res => {
       this.getTweets();
@@ -50,7 +49,6 @@ export class TweetsService {
     const tweet: Tweet = {id, descripcion: desc};
     this.http.put('http://localhost:8090/tweet/' + id, tweet)
     .subscribe(res => {
-      // console.log('res', res);
       this.getTweets();
     } );
   }

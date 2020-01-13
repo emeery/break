@@ -5,17 +5,20 @@ import { TweetsComponent } from '../components/nv/tweets/tweets.component';
 import { AnswersComponent } from '../components/nv/answers/answers.component';
 import { MediaComponent } from '../components/nv/media/media.component';
 import { LikesComponent } from '../components/nv/likes/likes.component';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { HomeComponent } from '../components/home/home.component';
 
 
 
 const rutas: Routes = [
-    {path: '', redirectTo: '/tweets', pathMatch: 'full'},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'dsh', component: DashboardComponent},
     // {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
+    {path: 'home', component: HomeComponent},
     {path: 'tweets', component: TweetsComponent},
-    {path: 'tweets/:tweetId', component: TweetsComponent},
-    {path: 'replies', component: AnswersComponent},
-    {path: 'media', component: MediaComponent},
-    {path: 'likes', component: LikesComponent},
+    // {path: 'replies', component: AnswersComponent},
+    // {path: 'media', component: MediaComponent},
+    // {path: 'likes', component: LikesComponent},
 
   ];
 @NgModule({

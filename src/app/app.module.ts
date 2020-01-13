@@ -18,6 +18,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { EdittweetComponent } from './components/edittweet/edittweet.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EdittweetComponent } from './components/edittweet/edittweet.component';
     SignupComponent,
     LoginComponent,
     EdittweetComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

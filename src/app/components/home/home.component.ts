@@ -16,8 +16,5 @@ export class HomeComponent implements OnInit {
   }
   addTweet(): void {
    const dlgRef = this.dlg.open(AddtweetComponent);
-  //  dlgRef.afterClosed().subscribe(result => {
-  //   console.log('r', result);
-  // });
   }
 }

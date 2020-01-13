@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   watermelon: string;
   signup: string;
   in: string;
+  note: string;
   constructor(private dlg: MatDialog) {
   }
 
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
     this.watermelon = '../../../assets/images/png/watermelon.png';
     this.in = '../../../assets/images/png/back.png';
     this.signup = '../../../assets/images/png/next.png';
+    this.note = '../../../assets/images/png/paper.png';
   }
   onLogin() {
     this.dlg.open(LoginComponent);

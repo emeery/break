@@ -8,6 +8,11 @@
     <span class="spacer"></span>
     <ul>
         <li>
+            <a mat-button routerLink="/tweets">
+                <img style="width: 30px;height:30px" [src]="note" />
+            </a>
+        </li>
+        <li>
             <a (click)="onSignup()" mat-button routerLink="/">
                 <img style="width: 30px;height:30px" [src]="in" />
             </a>
