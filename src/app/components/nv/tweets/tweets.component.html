@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="cargando"></mat-spinner>
-<button class="btn" mat-button>AGREGA UNA NOTA</button>
+<button class="btn" mat-button>TODAS LAS NOTAS</button>
 <div *ngIf="!cargando">
     <mat-card *ngIf="tweets.length > 0; else notFirst;">
         <mat-card *ngFor="let t of tweets">

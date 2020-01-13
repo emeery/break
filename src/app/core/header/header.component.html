@@ -8,6 +8,11 @@
     <span class="spacer"></span>
     <ul>
         <li>
+            <a (click)="addTweet()" mat-button>
+                <img style="width: 30px;height:30px" [src]="plus" />
+            </a>
+        </li>
+        <li>
             <a mat-button routerLink="/tweets">
                 <img style="width: 30px;height:30px" [src]="note" />
             </a>
