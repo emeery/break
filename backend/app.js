@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 app.use('/tweet', tweetRouter)
 app.use('/user', userRouter)
-
-app.listen(8090, function() {
-    console.log('servidor_up ...')
-});
+module.exports = app;
+// app.listen(8090, function() {
+//     console.log('servidor_up ...')
+// });
