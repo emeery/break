@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import {  HttpClient } from '@angular/common/http';
-import { Tweet } from '../models/tweet';
+import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { Tweet } from '../models/tweet';
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl + '/tweet/';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +16,7 @@ export class TweetsService {
   constructor(private http: HttpClient) { }
   getTweets() {
     this.http.get<{mensaje: string; tweets: any}>(
-      'http://localhost:8090/tweet')
+     BACKEND_URL)
     .pipe(
       map((res) => {
         return res.tweets.map(t => {
@@ -30,7 +34,7 @@ export class TweetsService {
   }
   addTweet(title: string) {
     const tweetData: Tweet = {id: null, descripcion: title};
-    this.http.post('http://localhost:8090/tweet', tweetData)
+    this.http.post(BACKEND_URL, tweetData)
     .subscribe(res => {
       this.getTweets();
     });
@@ -38,7 +42,7 @@ export class TweetsService {
   getTweet(ide: string) {
     return this.http
     .get<{_id: string, descripcion: any }>(
-      'http://localhost:8090/tweet/' + ide)
+        BACKEND_URL + ide)
       .pipe(
         map((res) => {
           return {id: res._id, descripcion: res.descripcion};
@@ -47,14 +51,14 @@ export class TweetsService {
   }
   editTweet(id: string, desc: string) {
     const tweet: Tweet = {id, descripcion: desc};
-    this.http.put('http://localhost:8090/tweet/' + id, tweet)
+    this.http.put(BACKEND_URL + id, tweet)
     .subscribe(res => {
       this.getTweets();
     } );
   }
   deleteTweet(id: string) {
     return this.http.delete<{mensaje: string}>(
-      'http://localhost:8090/tweet/' + id);
+      BACKEND_URL + id);
   }
   getTweetListener() {
     return this.tweetChanged.asObservable();
