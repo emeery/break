@@ -21,6 +21,7 @@ import { EdittweetComponent } from './components/edittweet/edittweet.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatVideoModule } from 'mat-video';
 import { AuthInterceptor} from './auth/aut.interceptor';
+// import { ErrorI}
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,7 @@ import { AuthInterceptor} from './auth/aut.interceptor';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    // {provide: HTTP_INTERCEPTORS, useClass: ErrorIntercepto, multi: true}
   ],
   entryComponents: [ AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
