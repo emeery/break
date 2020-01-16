@@ -3,9 +3,11 @@ const Tweet = require('../models/tweet')
     // const multer = require('multer')
     // const aut = require('../middleware/check-aut')
 const router = express.Router()
-router.post('', async(req, res) => {
+const aut = require('../middleware/aut')
+router.post('', aut, async(req, res) => {
     const tweet = new Tweet({
         descripcion: req.body.descripcion,
+        titular: req.userr._id
     })
     try {
         await tweet.save()
@@ -14,17 +16,26 @@ router.post('', async(req, res) => {
             tweet: {
                 id: tweet._id,
                 descripcion: tweet.descripcion,
+                titular: tweet.titular
             }
         })
     } catch (e) { res.status(400).send(e) }
 });
 router.get('', async(req, res) => {
+    // try {
+    //     await req.userr.populate('tweetp').execPopulate()
+    //     res.status(200).json(req.userr.tweetp)
+    // } catch (e) { res.status(500).send() }
     try {
         const tweets = await Tweet.find({})
+            // .skip(xpagina * (pagina - 1))
+            // .limit(xpagina)
+            // .exec()
         res.status(200).json({
-            mensaje: 'todos los tweets',
-            tweets
-        });
+            mensaje: "todos los tweets",
+            tweets,
+            // totalPerfiles: total
+        })
     } catch (e) { res.status(500).send() }
 });
 router.get('/:id', async(req, res) => {

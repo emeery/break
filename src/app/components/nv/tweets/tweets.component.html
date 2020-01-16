@@ -1,12 +1,12 @@
 <mat-spinner *ngIf="cargando"></mat-spinner>
-<button class="btn" mat-button>TODAS LAS NOTAS</button>
+<button (click)="getTweets()" class="btn" mat-button>TODAS LAS NOTAS</button>
 <div *ngIf="!cargando">
     <mat-card *ngIf="tweets.length > 0; else notFirst;">
         <mat-card *ngFor="let t of tweets">
             <mat-card-content>
                 {{t.descripcion}}
             </mat-card-content>
-            <mat-card-actions>
+            <mat-card-actions *ngIf="estaAut">
                 <button (click)="onEdit(t.id)" mat-button>EDIT</button>
                 <button (click)="onDelete(t.id)" mat-button>X</button>
             </mat-card-actions>

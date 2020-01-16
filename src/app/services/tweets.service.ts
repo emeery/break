@@ -28,6 +28,7 @@ export class TweetsService {
       })
     )
     .subscribe(twtD => {
+      console.log('tt', twtD);
       this.tweets = twtD;
       this.tweetChanged.next([...this.tweets]);
     });

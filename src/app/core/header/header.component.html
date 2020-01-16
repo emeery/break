@@ -7,26 +7,30 @@
 </span>
     <span class="spacer"></span>
     <ul>
-        <li>
+        <li *ngIf="userAut">
             <a (click)="addTweet()" mat-button>
                 <img style="width: 30px;height:30px" [src]="plus" />
             </a>
         </li>
-        <li>
+        <li *ngIf="userAut">
             <a mat-button routerLink="/tweets">
                 <img style="width: 30px;height:30px" [src]="note" />
             </a>
         </li>
-        <li>
-            <a (click)="onSignup()" mat-button routerLink="/">
-                <img style="width: 30px;height:30px" [src]="in" />
+        <li *ngIf="!userAut">
+            <a (click)="onSignup()" mat-button>
+                S
+            </a>
+        </li>
+        <li *ngIf="!userAut">
+            <a (click)="onLogin()" mat-button>
+                L
             </a>
         </li>
         <li>
-            <a (click)="onLogin()" mat-button routerLink="/">
-                <img style="width: 30px;height:30px" [src]="signup" />
+            <a (click)="onLogout()" *ngIf="userAut" mat-button>
+                <img style="width: 30px;height:30px" [src]="exit" />
             </a>
         </li>
-        <li></li>
     </ul>
 </mat-toolbar>

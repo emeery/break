@@ -18,6 +18,16 @@
     }
 }
 
+.mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: $osw;
+    color: $cl;
+}
+
 button {
     color: $cl;
 }

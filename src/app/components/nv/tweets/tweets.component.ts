@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { EdittweetComponent } from '../../edittweet/edittweet.component';
+import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
@@ -14,13 +15,18 @@ export class TweetsComponent implements OnInit, OnDestroy {
   tweets: Tweet[] = [];
   private tweetSubs: Subscription;
   cargando = false;
+  estaAut = false;
+  AutListenS: Subscription;
   constructor(
     public tService: TweetsService,
     public dlg: MatDialog,
-    public route: ActivatedRoute ) { }
+    private autService: AuthService
+    // public route: ActivatedRoute,
+
+     ) { }
 
   ngOnInit() {
-    this.getTweets();
+    // this.getTweets();
   }
   getTweets() {
     this.tService.getTweets();
@@ -31,6 +37,11 @@ export class TweetsComponent implements OnInit, OnDestroy {
       this.cargando = false;
       this.tweets = twt;
       console.log('tt', this.tweets);
+    });
+    this.estaAut = this.autService.getIsAut();
+    this.autService.getAutListen()
+    .subscribe(aut => {
+      this.estaAut = aut;
     });
   }
   onEdit(tweetId: string) {
