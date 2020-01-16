@@ -12,7 +12,7 @@ import { AppRoutingModule } from './routes/app.routing.module';
 import { AnswersComponent } from './components/nv/answers/answers.component';
 import { MediaComponent } from './components/nv/media/media.component';
 import { LikesComponent } from './components/nv/likes/likes.component';
-import {  HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddtweetComponent } from './components/addtweet/addtweet.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -20,6 +20,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { EdittweetComponent } from './components/edittweet/edittweet.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatVideoModule } from 'mat-video';
+import { AuthInterceptor} from './auth/aut.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,10 @@ import { MatVideoModule } from 'mat-video';
     FormsModule,
     MatVideoModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   entryComponents: [ AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
 })

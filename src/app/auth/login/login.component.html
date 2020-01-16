@@ -1,7 +1,9 @@
 <div>
     <form (submit)="onLogin(f)" #f="ngForm">
+      <h1 mat-dialog-title>
+        LOGIN
+      </h1>
         <mat-dialog-content>
-
             <mat-form-field class="example-full-width">
                 <input matInput type="email" name="correo" ngModel #emailE="ngModel" required />
                 <mat-placeholder class="placeholder">Email</mat-placeholder>

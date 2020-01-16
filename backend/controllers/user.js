@@ -7,7 +7,8 @@ router.post('/signup', async(req, res) => {
     try {
         const user = new Usuario({
             correo: req.body.correo,
-            contraseña: h
+            contraseña: h,
+            nombre: req.body.nombre
         })
         await user.save()
         res.status(201).json({ mensaje: 'usuario creado!', user });
@@ -18,17 +19,26 @@ router.post('/login', async(req, res) => {
         const user = await Usuario.findCredencial(
                 req.body.correo,
                 req.body.contraseña
-            ) //
-        const token = await user.generaToken() //
-            // console.log('to', token);
+        )
+        const token = await user.generaToken()
             // const decoded = await user.getUserId(token);
         res.status(200).json({
             token,
+            user
             // expiraEn: 3600,
             // userId: decoded
         });
     } catch (e) {
         res.status(401).json({ mensaje: 'credenciales invalidas' });
     }
+});
+router.get('', async(req, res) => {
+  try {
+      const users = await Usuario.find({})
+      res.status(200).json({
+          mensaje: 'todos los usuarios',
+          users
+      });
+  } catch (e) { res.status(500).send() }
 });
 module.exports = router

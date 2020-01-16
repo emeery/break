@@ -1,7 +1,7 @@
 const express = require('express')
 const Tweet = require('../models/tweet')
+const aut = require('../middleware/aut')
     // const multer = require('multer')
-    // const aut = require('../middleware/check-aut')
 const router = express.Router()
 router.post('', async(req, res) => {
     const tweet = new Tweet({

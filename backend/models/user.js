@@ -2,15 +2,35 @@ const mongoose = require('mongoose')
 const uniqueV = require('mongoose-unique-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const v = require('validator')
 const usuarioEsquema = mongoose.Schema({
+    nombre: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
     correo: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true,
+        lowercase: true,
+        validate(c) {
+          if (!v.isEmail(c)) {
+              throw new Error('correo invalido')
+          }
+      }
     },
     contraseña: {
         type: String,
         required: true,
+        minlength: 6,
+        trim:true,
+        validate(p) {
+          if (p.toLowerCase().includes('contraseña')) {
+              throw new Error('el pase no puede tener la palabra contraseña')
+          }
+      }
     }
 })
 usuarioEsquema.statics.findCredencial = async(correo, pass) => {

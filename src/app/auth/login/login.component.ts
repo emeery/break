@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { AddtweetComponent } from 'src/app/components/addtweet/addtweet.component';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,14 +11,16 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
   tweetForm: FormGroup;
   constructor(
-    public autService: AuthService ,
-    ) { }
+    public autService: AuthService,
+    private dlgRef: MatDialogRef<LoginComponent>
+  ) { }
 
   ngOnInit() {
   }
   onLogin(form: NgForm) {
-   this.autService.createUser(
-     form.value.correo,
-     form.value.contraseña );
+    this.autService.loginUser(
+      form.value.correo,
+      form.value.contraseña);
+    this.dlgRef.close();
   }
 }
