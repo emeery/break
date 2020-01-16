@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { EdittweetComponent } from '../../edittweet/edittweet.component';
+import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
@@ -12,10 +13,13 @@ import { EdittweetComponent } from '../../edittweet/edittweet.component';
 })
 export class TweetsComponent implements OnInit, OnDestroy {
   tweets: Tweet[] = [];
-  private tweetSubs: Subscription;
   cargando = false;
+  estaAut = false;
+  private tweetSubs: Subscription;
+  private autSubs: Subscription;
   constructor(
     public tService: TweetsService,
+    private autService: AuthService,
     public dlg: MatDialog,
     public route: ActivatedRoute ) { }
 
@@ -25,18 +29,21 @@ export class TweetsComponent implements OnInit, OnDestroy {
   getTweets() {
     this.tService.getTweets();
     this.cargando = true;
-    this.tweetSubs =
-    this.tService.getTweetListener()
+    this.tweetSubs = this.tService.getTweetListener()
     .subscribe((twt: Tweet[]) => {
       this.cargando = false;
       this.tweets = twt;
-      console.log('tt', this.tweets);
+    });
+    this.estaAut = this.autService.getEstaAut();
+    this.autSubs = this.autService.getEstaAutListen()
+    .subscribe(aut => {
+      this.estaAut = aut;
     });
   }
   onEdit(tweetId: string) {
     this.tService.getTweet(tweetId)
     .subscribe(twet => {
-
+        console.log('r', twet);
     });
     this.dlg.open(EdittweetComponent, {data: {id: tweetId }});
   }
@@ -47,5 +54,6 @@ export class TweetsComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.tweetSubs.unsubscribe();
+    this.autSubs.unsubscribe();
   }
 }

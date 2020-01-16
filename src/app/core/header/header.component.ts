@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   note: string;
   plus: string;
   estaAut = false;
-  private subs: Subscription;
+  private autSub: Subscription;
   constructor(
     private dlg: MatDialog,
     public autService: AuthService
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadPng();
     this.estaAut = this.autService.getEstaAut();
-    this.subs = this.autService.getEstaAutListen()
+    this.autSub = this.autService.getEstaAutListen()
       .subscribe(aut => {
         this.estaAut = aut;
         console.log('utt', this.estaAut);
@@ -48,6 +48,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dlg.open(SignupComponent);
   }
   ngOnDestroy() {
-    this.subs.unsubscribe();
+    this.autSub.unsubscribe();
   }
 }
