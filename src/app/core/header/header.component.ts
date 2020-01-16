@@ -20,22 +20,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     private dlg: MatDialog,
     public autService: AuthService
-    ) {
-  }
-
+  ) { }
   ngOnInit() {
     this.loadPng();
     this.estaAut = this.autService.getEstaAut();
     this.subs = this.autService.getEstaAutListen()
-    .subscribe(aut => {
-      this.estaAut = aut;
-      console.log('utt', this.estaAut);
-    });
+      .subscribe(aut => {
+        this.estaAut = aut;
+        console.log('utt', this.estaAut);
+      });
   }
   loadPng() {
     this.watermelon = '../../../assets/images/png/watermelon.png';
     this.note = '../../../assets/images/png/paper.png';
     this.plus = '../../../assets/images/png/plus.png';
+  }
+  logout() {
+    this.autService.logout();
   }
   addTweet() {
     this.dlg.open(AddtweetComponent);

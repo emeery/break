@@ -18,7 +18,7 @@ router.post('', async(req, res) => {
         })
     } catch (e) { res.status(400).send(e) }
 });
-router.get('', async(req, res) => {
+router.get('', aut,  async(req, res) => {
     try {
         const tweets = await Tweet.find({})
         res.status(200).json({

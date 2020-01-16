@@ -39,4 +39,10 @@ export class AuthService {
       this.router.navigate(['/tweets']);
     });
   }
+  logout() {
+    this.token = null;
+    this.estaAut = false;
+    this.estaAutListen.next(false);
+    this.router.navigate(['/home']);
+  }
 }
