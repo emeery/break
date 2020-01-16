@@ -7,24 +7,28 @@
 </span>
     <span class="spacer"></span>
     <ul>
-        <li>
+        <li *ngIf="estaAut">
             <a (click)="addTweet()" mat-button>
                 <img style="width: 30px;height:30px" [src]="plus" />
             </a>
-        </li>
-        <li>
+        </li >
+        <li *ngIf="estaAut">
             <a mat-button routerLink="/tweets">
                 <img style="width: 30px;height:30px" [src]="note" />
-
             </a>
         </li>
-        <li>
+        <li *ngIf="estaAut">
+          <a mat-button >
+              Salir
+          </a>
+      </li>
+        <li *ngIf="!estaAut">
             <a (click)="onSignup()" mat-button >
                 <!-- <img style="width: 30px;height:30px" [src]="in" /> -->
                 Registro
             </a>
         </li>
-        <li>
+        <li *ngIf="!estaAut">
             <a (click)="onLogin()" mat-button >
                 <!-- <img style="width: 30px;height:30px" [src]="signup" /> -->
                 Entrar
