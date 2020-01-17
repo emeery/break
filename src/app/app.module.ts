@@ -22,6 +22,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatVideoModule } from 'mat-video';
 import { AuthInterceptor} from './auth/aut.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ErrorInterceptor } from './auth/error.interceptor';
+import { ErrorComponent } from './components/error/error.component';
 // import { ErrorI}
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     EdittweetComponent,
     DashboardComponent,
     ProfileComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +55,9 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    // {provide: HTTP_INTERCEPTORS, useClass: ErrorIntercepto, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
-  entryComponents: [ AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
+  entryComponents: [ ErrorComponent, AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

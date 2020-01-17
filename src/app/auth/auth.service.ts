@@ -18,9 +18,9 @@ export class AuthService {
   getIsAut() {return this.estaAut; }
   createUser(nm: string, em: string, ps: string) {
     const user: User = {nombre: nm, correo: em, contraseña: ps};
-    this.http.post('http://localhost:8090/user/signup', user)
+    this.http.post<{mensaje: string}>('http://localhost:8090/user/signup', user)
     .subscribe(res => {
-      console.log('rs', res);
+      console.log('rs', res.mensaje);
     });
   }
   loginUser(em: string, ps: string) {

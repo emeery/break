@@ -34,8 +34,9 @@ router.post('/login', async(req, res) => {
             // expiraEn: 3600,
             // userId: decoded
         });
-    } catch (e) {
-        res.status(401).json({ mensaje: 'credenciales invalidas' });
+    } catch (error) {
+        console.log('e', error);
+        res.status(401).json({ mensaje: error });
     }
 });
 router.get('', async(req, res) => {

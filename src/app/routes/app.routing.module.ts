@@ -8,7 +8,6 @@ import { LikesComponent } from '../components/nv/likes/likes.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { HomeComponent } from '../components/home/home.component';
 import { AuthGuard } from '../auth/aut.guard';
-import { AuthService } from '../auth/auth.service';
 
 const rutas: Routes = [
     {path: '', redirectTo: 'start', pathMatch: 'full'},
