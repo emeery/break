@@ -21,12 +21,10 @@ export class TweetsComponent implements OnInit, OnDestroy {
     public tService: TweetsService,
     private autService: AuthService,
     public dlg: MatDialog,
-    // public route: ActivatedRoute,
-
      ) { }
 
   ngOnInit() {
-    // this.getTweets();
+    this.getTweets();
   }
   getTweets() {
     this.tService.getTweets();
