@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   loadPng() {
     this.watermelon = '../../../assets/images/png/watermelon.png';
-    this.note = '../../../assets/images/png/paper.png';
+    this.note = '../../../assets/images/png/note.png';
     this.plus = '../../../assets/images/png/plus.png';
     this.exit = '../../../assets/images/png/exit.png';
     this.autService.getAutListen().subscribe(aut => {

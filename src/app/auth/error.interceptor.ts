@@ -15,12 +15,10 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return next.handle(req).pipe(
       catchError((err: HttpErrorResponse) => {
-        let errorMsje = 'ocurrió un error';
-        // console.log('e', err.error.e.message);
-        if (err.error.e.message) {
-          errorMsje = err.error.e.message;
-        }
-        this.dlg.open(ErrorComponent, {data: {unmensaje: errorMsje} });
+        let errorMensaje = 'ocurrió un error';
+        console.log('err', err);
+        if (err.error.mensaje) { errorMensaje = err.error.mensaje; }
+        this.dlg.open(ErrorComponent, {data: {mensaje: errorMensaje} });
         return throwError(err);
       })
     );

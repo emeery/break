@@ -7,7 +7,7 @@ const usuarioEsquema = mongoose.Schema({
     nombre: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 3,
     },
     correo: {
         type: String,
@@ -38,10 +38,23 @@ const usuarioEsquema = mongoose.Schema({
     }
 })
 usuarioEsquema.statics.findCredencial = async(correo, pass) => {
-    const user = await Usuario.findOne({ correo })
-    const hacematch = await bcrypt.compare(pass, user.contraseña)
-    if (!hacematch) { throw new Error('no se puede loguear') }
-    return user
+    // console.log('co', correo);
+    const user = await User.findOne({ correo })
+    console.log('usrr', user)
+    const esV = await crypt.compare(pase, user.contraseña)
+    if (!esV) { throw new Error('no se pudo loguear') }
+
+    // const user = await Usuario.findOne({ correo })
+    // console.log('ussrr', user);
+    // if (!user) {
+    //     return res.status(401).json({
+    //         mensaje: 'no estas autenticado'
+    //     });
+    // }
+    return user;
+    // const hacematch = await bcrypt.compare(pass, user.contraseña)
+    // if (!hacematch) { throw new Error('no se puede loguear') }
+    // return user
 }
 
 usuarioEsquema.methods.generaToken = async function() {

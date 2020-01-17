@@ -7,8 +7,8 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./error.component.scss']
 })
 export class ErrorComponent implements OnInit {
-  unmensaje = 'ocurrió un error';
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {unmensaje: string} ) { }
+  mensaje = 'ocurrió un error';
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {mensaje: string} ) { }
 
   ngOnInit() {
   }

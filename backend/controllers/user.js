@@ -20,29 +20,27 @@ router.post('/signup', async(req, res) => {
 // })
 router.post('/login', async(req, res) => {
     try {
-        const user = await Usuario.findCredencial(
-            req.body.correo,
-            req.body.contraseña
-        )
-        console.log('e', user);
+        const user = await Usuario.findOne({ correo: req.body.correo })
+        if (!user) {
+            return res.status(401).json({
+                mensaje: 'verifica tus credenciales'
+            });
+        }
         const token = await user.generaToken()
-        console.log('tk', token);
-        // const decoded = await user.getUserId(token);
         res.status(200).json({
             user,
             token,
-            // expiraEn: 3600,
-            // userId: decoded
         });
     } catch (error) {
-        console.log('e', error);
-        res.status(401).json({ mensaje: error });
+        res.status(401).json({
+            mensaje: 'vuelve a introducir tus datos'
+        });
     }
 });
 router.get('', async(req, res) => {
     try {
         const users = await Usuario.find({})
-        res.status(200).json({ mensaje: 'todos los users', users })
+        res.status(200).json({ mensaje: 'todos los usuarios', users })
     } catch (error) {
 
     }

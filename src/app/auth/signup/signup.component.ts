@@ -9,7 +9,7 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  spinner = false;
   constructor(
     private autService: AuthService,
     private dlgRef: MatDialogRef<LoginComponent>
@@ -18,11 +18,13 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   onSignup(form: FormGroup) {
+    // if (form.invalid) {
+    //   console.log('jojo');
+    //   return;  }
     this.autService.createUser(
       form.value.nombre,
       form.value.correo,
-      form.value.contraseña
-      );
+      form.value.contraseña);
     this.dlgRef.close();
   }
 

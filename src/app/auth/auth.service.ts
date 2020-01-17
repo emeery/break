@@ -18,15 +18,15 @@ export class AuthService {
   getIsAut() {return this.estaAut; }
   createUser(nm: string, em: string, ps: string) {
     const user: User = {nombre: nm, correo: em, contraseña: ps};
-    this.http.post<{mensaje: string}>('http://localhost:8090/user/signup', user)
-    .subscribe(res => {
-      console.log('rs', res.mensaje);
-    });
+    console.log('u', user);
+    this.http.post<{mensaje: string}>(
+      'http://localhost:8090/user/signup', user)
+      .subscribe(res => {
+        console.log('ress', res); }, e => { console.log('mot', e); });
   }
   loginUser(em: string, ps: string) {
     const user = {correo: em, contraseña: ps};
-    console.log('bet', user);
-    this.http.post<{mensaje: string, token: string}>(
+    return this.http.post<{mensaje: string, token: string}>(
       'http://localhost:8090/user/login', user)
     .subscribe(res => {
       const token = res.token;
@@ -36,13 +36,13 @@ export class AuthService {
         this.autListen.next(true);
       }
       this.router.navigate(['/tweets']);
-    });
+    }, e => {  });
   }
   logout() {
     this.token = null;
     this.estaAut = false;
     this.autListen.next(false);
     this.autListen.next(false);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/start']);
   }
 }
