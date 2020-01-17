@@ -10,11 +10,9 @@ import { HomeComponent } from '../components/home/home.component';
 import { AuthGuard } from '../auth/aut.guard';
 import { AuthService } from '../auth/auth.service';
 
-
-
 const rutas: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'dsh', component: DashboardComponent},
+    {path: '', redirectTo: 'start', pathMatch: 'full'},
+    {path: 'start', component: DashboardComponent},
     // {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
     {path: 'home', component: HomeComponent},
     {path: 'tweets', component: TweetsComponent, canActivate: [AuthGuard]},

@@ -21,6 +21,7 @@ import { EdittweetComponent } from './components/edittweet/edittweet.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatVideoModule } from 'mat-video';
 import { AuthInterceptor} from './auth/aut.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
 // import { ErrorI}
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthInterceptor} from './auth/aut.interceptor';
     LoginComponent,
     EdittweetComponent,
     DashboardComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
