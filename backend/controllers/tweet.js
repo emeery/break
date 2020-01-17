@@ -1,7 +1,7 @@
 const express = require('express')
 const Tweet = require('../models/tweet')
+const aut = require('../middleware/aut')
     // const multer = require('multer')
-    // const aut = require('../middleware/check-aut')
 const router = express.Router()
 const aut = require('../middleware/aut')
 router.post('', aut, async(req, res) => {
@@ -21,11 +21,7 @@ router.post('', aut, async(req, res) => {
         })
     } catch (e) { res.status(400).send(e) }
 });
-router.get('', async(req, res) => {
-    // try {
-    //     await req.userr.populate('tweetp').execPopulate()
-    //     res.status(200).json(req.userr.tweetp)
-    // } catch (e) { res.status(500).send() }
+router.get('', aut, async(req, res) => {
     try {
         const tweets = await Tweet.find({})
             // .skip(xpagina * (pagina - 1))

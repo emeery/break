@@ -5,20 +5,36 @@ const jwt = require('jsonwebtoken')
 const v = require('validator')
 const usuarioEsquema = mongoose.Schema({
     nombre: {
+<<<<<<< HEAD
         type: String,
         required: true,
         trim: true
+=======
+      type: String,
+      required: true,
+      minlength: 5,
+>>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
     },
     correo: {
         type: String,
         required: true,
         unique: true,
+<<<<<<< HEAD
         lowercase: true,
         validate(c) {
             if (!v.isEmail(c)) {
                 throw new Error('correo invalido')
             }
         }
+=======
+        trim: true,
+        lowercase: true,
+        validate(c) {
+          if (!v.isEmail(c)) {
+              throw new Error('correo invalido')
+          }
+      }
+>>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
     },
     tokens: [{
         token: { type: String, required: true }
@@ -27,6 +43,13 @@ const usuarioEsquema = mongoose.Schema({
     contraseña: {
         type: String,
         required: true,
+        minlength: 6,
+        trim:true,
+        validate(p) {
+          if (p.toLowerCase().includes('contraseña')) {
+              throw new Error('el pase no puede tener la palabra contraseña')
+          }
+      }
     }
 })
 usuarioEsquema.statics.findCredencial = async(correo, pass) => {

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
-import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +18,18 @@ export class AuthService {
   getIsAut() {return this.estaAut; }
   createUser(name: string, em: string, ps: string) {
     const user: User = {nombre : name, correo: em, contraseña: ps};
+=======
+  private estaAutListen = new Subject<boolean>();
+  private estaAut = false;
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
+  getToken() { return this.token; }
+  getEstaAut() { return this.estaAut; }
+  getEstaAutListen() { return this.estaAutListen.asObservable(); }
+  createUser(em: string, ps: string) {
+    const user: User = {correo: em, contraseña: ps};
     this.http.post('http://localhost:8090/user/signup', user)
     .subscribe(res => {
       console.log('rs', res);
@@ -25,22 +37,23 @@ export class AuthService {
   }
   loginUser(em: string, ps: string) {
     const user = {correo: em, contraseña: ps};
-    this.http.post<{token: string}>('http://localhost:8090/user/login', user)
+    this.http.post<{mensaje: string, token: string}>(
+      'http://localhost:8090/user/login', user)
     .subscribe(res => {
       const token = res.token;
       this.token = token;
-      // console.log('to', this.token);
       if (token) {
-        this.autListen.next(true);
         this.estaAut = true;
+        this.estaAutListen.next(true);
       }
+      this.router.navigate(['/tweets']);
     });
-    // this.router.navigate(['/tweets']);
   }
   logout() {
     this.token = null;
     this.estaAut = false;
     this.autListen.next(false);
+    this.estaAutListen.next(false);
     this.router.navigate(['/home']);
   }
 }
