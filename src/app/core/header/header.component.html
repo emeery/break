@@ -7,56 +7,31 @@
 </span>
     <span class="spacer"></span>
     <ul>
-<<<<<<< HEAD
-        <li *ngIf="userAut">
+        <li *ngIf="isAut">
             <a (click)="addTweet()" mat-button>
                 <img style="width: 30px;height:30px" [src]="plus" />
             </a>
         </li>
-        <li *ngIf="userAut">
-=======
-        <li *ngIf="estaAut">
-            <a (click)="addTweet()" mat-button>
-                <img style="width: 30px;height:30px" [src]="plus" />
-            </a>
-        </li >
-        <li *ngIf="estaAut">
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
+        <li *ngIf="isAut">
             <a mat-button routerLink="/tweets">
                 <img style="width: 30px;height:30px" [src]="note" />
             </a>
         </li>
-<<<<<<< HEAD
-        <li *ngIf="!userAut">
-            <a (click)="onSignup()" mat-button>
-                S
-            </a>
-        </li>
-        <li *ngIf="!userAut">
-            <a (click)="onLogin()" mat-button>
-                L
-            </a>
-        </li>
-        <li>
-            <a (click)="onLogout()" *ngIf="userAut" mat-button>
-                <img style="width: 30px;height:30px" [src]="exit" />
-=======
-        <li *ngIf="estaAut">
-          <a (click)="logout()" mat-button >
+        <li *ngIf="isAut">
+            <a (click)="logout()" mat-button>
               Salir
           </a>
-      </li>
-        <li *ngIf="!estaAut">
-            <a (click)="onSignup()" mat-button >
+        </li>
+        <li *ngIf="!isAut">
+            <a (click)="onSignup()" mat-button>
                 <!-- <img style="width: 30px;height:30px" [src]="in" /> -->
                 Registro
             </a>
         </li>
-        <li *ngIf="!estaAut">
-            <a (click)="onLogin()" mat-button >
+        <li *ngIf="!isAut">
+            <a (click)="onLogin()" mat-button>
                 <!-- <img style="width: 30px;height:30px" [src]="signup" /> -->
                 Entrar
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
             </a>
         </li>
     </ul>

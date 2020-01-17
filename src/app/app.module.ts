@@ -20,13 +20,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { EdittweetComponent } from './components/edittweet/edittweet.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatVideoModule } from 'mat-video';
-<<<<<<< HEAD
-import { AuthInterceptor } from './auth/aut.interceptor';
-=======
 import { AuthInterceptor} from './auth/aut.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
 // import { ErrorI}
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,14 +50,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule,
     MatVideoModule
   ],
-<<<<<<< HEAD
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
-=======
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     // {provide: HTTP_INTERCEPTORS, useClass: ErrorIntercepto, multi: true}
   ],
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
   entryComponents: [ AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
 })

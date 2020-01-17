@@ -3,7 +3,6 @@ const Tweet = require('../models/tweet')
 const aut = require('../middleware/aut')
     // const multer = require('multer')
 const router = express.Router()
-const aut = require('../middleware/aut')
 router.post('', aut, async(req, res) => {
     const tweet = new Tweet({
         descripcion: req.body.descripcion,

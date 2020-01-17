@@ -15,17 +15,12 @@ export class TweetsComponent implements OnInit, OnDestroy {
   tweets: Tweet[] = [];
   cargando = false;
   estaAut = false;
-<<<<<<< HEAD
-  AutListenS: Subscription;
-=======
   private tweetSubs: Subscription;
   private autSubs: Subscription;
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
   constructor(
     public tService: TweetsService,
     private autService: AuthService,
     public dlg: MatDialog,
-    private autService: AuthService
     // public route: ActivatedRoute,
 
      ) { }
@@ -41,8 +36,8 @@ export class TweetsComponent implements OnInit, OnDestroy {
       this.cargando = false;
       this.tweets = twt;
     });
-    this.estaAut = this.autService.getEstaAut();
-    this.autSubs = this.autService.getEstaAutListen()
+    this.estaAut = this.autService.getIsAut();
+    this.autSubs = this.autService.getAutListen()
     .subscribe(aut => {
       this.estaAut = aut;
     });

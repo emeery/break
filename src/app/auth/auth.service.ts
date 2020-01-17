@@ -16,20 +16,8 @@ export class AuthService {
   getToken() { return this.token; }
   getAutListen() { return this.autListen.asObservable(); }
   getIsAut() {return this.estaAut; }
-  createUser(name: string, em: string, ps: string) {
-    const user: User = {nombre : name, correo: em, contraseña: ps};
-=======
-  private estaAutListen = new Subject<boolean>();
-  private estaAut = false;
-  constructor(
-    private http: HttpClient,
-    private router: Router
-    ) { }
-  getToken() { return this.token; }
-  getEstaAut() { return this.estaAut; }
-  getEstaAutListen() { return this.estaAutListen.asObservable(); }
-  createUser(em: string, ps: string) {
-    const user: User = {correo: em, contraseña: ps};
+  createUser(nm: string, em: string, ps: string) {
+    const user: User = {nombre: nm, correo: em, contraseña: ps};
     this.http.post('http://localhost:8090/user/signup', user)
     .subscribe(res => {
       console.log('rs', res);
@@ -37,6 +25,7 @@ export class AuthService {
   }
   loginUser(em: string, ps: string) {
     const user = {correo: em, contraseña: ps};
+    console.log('bet', user);
     this.http.post<{mensaje: string, token: string}>(
       'http://localhost:8090/user/login', user)
     .subscribe(res => {
@@ -44,7 +33,7 @@ export class AuthService {
       this.token = token;
       if (token) {
         this.estaAut = true;
-        this.estaAutListen.next(true);
+        this.autListen.next(true);
       }
       this.router.navigate(['/tweets']);
     });
@@ -53,7 +42,7 @@ export class AuthService {
     this.token = null;
     this.estaAut = false;
     this.autListen.next(false);
-    this.estaAutListen.next(false);
+    this.autListen.next(false);
     this.router.navigate(['/home']);
   }
 }

@@ -15,45 +15,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
   watermelon: string;
   note: string;
   plus: string;
-<<<<<<< HEAD
   exit: string;
-  autListenS: Subscription;
-  userAut = false;
-  constructor(
-    private dlg: MatDialog,
-    private autService: AuthService
-    ) {
-  }
-
-=======
-  estaAut = false;
+  isAut = false;
   private autSub: Subscription;
   constructor(
     private dlg: MatDialog,
     public autService: AuthService
   ) { }
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
   ngOnInit() {
     this.loadPng();
-    this.estaAut = this.autService.getEstaAut();
-    this.autSub = this.autService.getEstaAutListen()
+    this.isAut = this.autService.getIsAut();
+    this.autSub = this.autService.getAutListen()
       .subscribe(aut => {
-        this.estaAut = aut;
-        console.log('utt', this.estaAut);
+        this.isAut = aut;
+        console.log('utt', this.isAut);
       });
   }
   loadPng() {
     this.watermelon = '../../../assets/images/png/watermelon.png';
-<<<<<<< HEAD
-    this.signup = '../../../assets/images/png/next.png';
-=======
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
     this.note = '../../../assets/images/png/paper.png';
     this.plus = '../../../assets/images/png/plus.png';
     this.exit = '../../../assets/images/png/exit.png';
     this.autService.getAutListen().subscribe(aut => {
-      this.userAut = aut;
-      console.log('ttt', this.userAut);
+      this.isAut = aut;
+      console.log('ttt', this.isAut);
     });
   }
   logout() {
@@ -68,12 +53,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onSignup() {
     this.dlg.open(SignupComponent);
   }
-<<<<<<< HEAD
-  onLogout() {
-    this.autService.logout();
-=======
   ngOnDestroy() {
     this.autSub.unsubscribe();
->>>>>>> 8ad7c6938a82c104a5a4aab55fe02537ac939cbb
   }
 }
