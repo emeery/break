@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+const BACKEND_URL = environment.apiUrl + '/user/';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,14 +22,14 @@ export class AuthService {
     const user: User = {nombre: nm, correo: em, contraseña: ps};
     console.log('u', user);
     this.http.post<{mensaje: string}>(
-      'http://localhost:8090/user/signup', user)
+      BACKEND_URL + 'signup', user)
       .subscribe(res => {
         console.log('ress', res); }, e => { console.log('mot', e); });
   }
   loginUser(em: string, ps: string) {
     const user = {correo: em, contraseña: ps};
     return this.http.post<{mensaje: string, token: string}>(
-      'http://localhost:8090/user/login', user)
+      BACKEND_URL + 'login', user)
     .subscribe(res => {
       const token = res.token;
       this.token = token;

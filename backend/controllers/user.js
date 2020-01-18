@@ -20,12 +20,11 @@ router.post('/signup', async(req, res) => {
 // })
 router.post('/login', async(req, res) => {
     try {
-        const user = await Usuario.findOne({ correo: req.body.correo })
-        if (!user) {
-            return res.status(401).json({
-                mensaje: 'verifica tus credenciales'
-            });
-        }
+        const user = await Usuario.findCredencial(
+            req.body.correo,
+            req.body.contraseña
+        )
+        console.log('uu', user);
         const token = await user.generaToken()
         res.status(200).json({
             user,

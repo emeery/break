@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const uniqueV = require('mongoose-unique-validator')
-const bcrypt = require('bcryptjs')
+const crypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const v = require('validator')
 const usuarioEsquema = mongoose.Schema({
@@ -37,24 +37,14 @@ const usuarioEsquema = mongoose.Schema({
         }
     }
 })
-usuarioEsquema.statics.findCredencial = async(correo, pass) => {
-    // console.log('co', correo);
-    const user = await User.findOne({ correo })
-    console.log('usrr', user)
-    const esV = await crypt.compare(pase, user.contraseña)
-    if (!esV) { throw new Error('no se pudo loguear') }
-
-    // const user = await Usuario.findOne({ correo })
-    // console.log('ussrr', user);
-    // if (!user) {
-    //     return res.status(401).json({
-    //         mensaje: 'no estas autenticado'
-    //     });
-    // }
+usuarioEsquema.statics.findCredencial = async(correo, pase) => {
+    console.log('c', correo);
+    const user = await Usuario.findOne({ correo })
+    console.log('u', user);
+    const match = await crypt.compare(pase, user.contraseña)
+    console.log('mm', match);
+    if (!match) { throw new Error('no se pudo loguear') }
     return user;
-    // const hacematch = await bcrypt.compare(pass, user.contraseña)
-    // if (!hacematch) { throw new Error('no se puede loguear') }
-    // return user
 }
 
 usuarioEsquema.methods.generaToken = async function() {
