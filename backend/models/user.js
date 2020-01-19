@@ -38,11 +38,8 @@ const usuarioEsquema = mongoose.Schema({
     }
 })
 usuarioEsquema.statics.findCredencial = async(correo, pase) => {
-    console.log('c', correo);
     const user = await Usuario.findOne({ correo })
-    console.log('u', user);
     const match = await crypt.compare(pase, user.contraseña)
-    console.log('mm', match);
     if (!match) { throw new Error('no se pudo loguear') }
     return user;
 }

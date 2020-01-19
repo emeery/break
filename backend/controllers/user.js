@@ -24,7 +24,6 @@ router.post('/login', async(req, res) => {
             req.body.correo,
             req.body.contraseña
         )
-        console.log('uu', user);
         const token = await user.generaToken()
         res.status(200).json({
             user,

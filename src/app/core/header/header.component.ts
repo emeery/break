@@ -36,10 +36,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.note = '../../../assets/images/png/note.png';
     this.plus = '../../../assets/images/png/plus.png';
     this.exit = '../../../assets/images/png/exit.png';
-    this.autService.getAutListen().subscribe(aut => {
-      this.isAut = aut;
-      console.log('ttt', this.isAut);
-    });
   }
   logout() {
     this.autService.logout();
