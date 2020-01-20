@@ -24,7 +24,7 @@ export class AuthService {
     this.http.post<{mensaje: string}>(
       BACKEND_URL + 'signup', user)
       .subscribe(res => {
-        console.log('ress', res); }, e => { console.log('mot', e); });
+        console.log('ress', res); }, e => { this.autListen.next(false); });
   }
   loginUser(em: string, ps: string) {
     const user = {correo: em, contraseña: ps};
@@ -43,7 +43,6 @@ export class AuthService {
   logout() {
     this.token = null;
     this.estaAut = false;
-    this.autListen.next(false);
     this.autListen.next(false);
     this.router.navigate(['/start']);
   }

@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   note: string;
   plus: string;
   exit: string;
+  user: string;
   isAut = false;
   private autSub: Subscription;
   constructor(
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.note = '../../../assets/images/png/note.png';
     this.plus = '../../../assets/images/png/plus.png';
     this.exit = '../../../assets/images/png/exit.png';
+    this.user = '../../../assets/images/png/user.png';
   }
   logout() {
     this.autService.logout();

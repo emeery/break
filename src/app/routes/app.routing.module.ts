@@ -13,7 +13,7 @@ const rutas: Routes = [
     {path: '', redirectTo: 'start', pathMatch: 'full'},
     {path: 'start', component: DashboardComponent},
     // {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
-    {path: 'home', component: HomeComponent},
+    {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
     {path: 'tweets', component: TweetsComponent, canActivate: [AuthGuard]},
     // {path: 'replies', component: AnswersComponent},
     // {path: 'media', component: MediaComponent},
