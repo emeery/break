@@ -10,11 +10,11 @@ import { HomeComponent } from '../components/home/home.component';
 import { AuthGuard } from '../auth/aut.guard';
 
 const rutas: Routes = [
-    {path: '', redirectTo: 'start', pathMatch: 'full'},
-    {path: 'start', component: DashboardComponent},
-    // {path: 'recetas', loadChildren: '../components/recetas/recetas.module#RecetasModule'  },
+    {path: '', redirectTo: 'w', pathMatch: 'full'},
+    {path: 'w', component: DashboardComponent},
     {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
     {path: 'tweets', component: TweetsComponent, canActivate: [AuthGuard]},
+    {path: '**', redirectTo: 'w'} // bg
     // {path: 'replies', component: AnswersComponent},
     // {path: 'media', component: MediaComponent},
     // {path: 'likes', component: LikesComponent},

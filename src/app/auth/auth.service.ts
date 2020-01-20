@@ -20,7 +20,6 @@ export class AuthService {
   getIsAut() {return this.estaAut; }
   createUser(nm: string, em: string, ps: string) {
     const user: User = {nombre: nm, correo: em, contraseña: ps};
-    console.log('u', user);
     this.http.post<{mensaje: string}>(
       BACKEND_URL + 'signup', user)
       .subscribe(res => {
@@ -31,6 +30,7 @@ export class AuthService {
     return this.http.post<{mensaje: string, token: string}>(
       BACKEND_URL + 'login', user)
     .subscribe(res => {
+      console.log('res', res.mensaje);
       const token = res.token;
       this.token = token;
       if (token) {

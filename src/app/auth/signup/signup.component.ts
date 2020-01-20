@@ -15,12 +15,8 @@ export class SignupComponent implements OnInit {
     private dlgRef: MatDialogRef<LoginComponent>
     ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   onSignup(form: FormGroup) {
-    // if (form.invalid) {
-    //   console.log('jojo');
-    //   return;  }
     this.autService.createUser(
       form.value.nombre,
       form.value.correo,
