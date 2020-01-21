@@ -9,10 +9,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  pen: string;
+  location: string; // png
   constructor(public dlg: MatDialog) {}
 
   ngOnInit() {
+    this.location = '../../../assets/images/png/pin.png';
   }
   addTweet(): void {
    const dlgRef = this.dlg.open(AddtweetComponent);

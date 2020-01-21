@@ -2,26 +2,9 @@
 @import "../../styles/vars.scss";
 .container {
     width: 100%;
-    height: 300px;
+    height: 230px;
     background: url('../../../assets/images/png/land.jpg') no-repeat;
     background-size: cover;
-}
-
-.text {
-    font-family: 'Roboto Condensed', sans-serif;
-    display: flex;
-    justify-content: center;
-    font-size: 10vw;
-    line-height: 0.9;
-    position: relative;
-}
-
-.inner {
-    flex-direction: column;
-    position: absolute;
-    top: -90px;
-    width: 75%;
-    left: 100px;
 }
 
 .p {
@@ -35,26 +18,12 @@
 }
 
 button {
-    // width: 100%;
     font-size: 3vw;
 }
 
 .intro {
     font-size: $talla-l;
     color: cadetblue;
-}
-
-.alias {
-    font-size: $talla-m;
-    color: lightgrey;
-}
-
-.pro_header {
-    margin-top: $talla-m;
-    font-size: 20px;
-    color: lightslategrey;
-    display: flex;
-    justify-content: space-between;
 }
 
 img {
@@ -70,15 +39,23 @@ button {
     font-family: $osw;
 }
 
-.pro_header .col :nth-child(1) {
-    cursor: pointer;
+span {
+    font-family: $osw;
+    color: slategray;
+    font-size: 6vw;
 }
 
-.pro_header .col :nth-child(1) :hover {
-    background: blueviolet;
+.mat-card {
+    background: #191919;
 }
 
-.nav {
-    width: 100%;
-    background: lightslategrey;
+.w {
+    font-family: $osw;
+    color: tomato;
+    font-size: 6vw;
+}
+
+.y {
+    font-family: $osw;
+    color: lightyellow;
 }
