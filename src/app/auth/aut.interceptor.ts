@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
       // setHeaders: { authorization: `Bearer ${this.authServicio.getToken()}`}
       headers: req.headers.set('authorization', 'Bearer ' + jwt)
     });
-    console.log(authSolicitud.headers);
+    // console.log(authSolicitud.headers);
     return next.handle(authSolicitud);
   }
 }
