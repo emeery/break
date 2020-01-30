@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
 const tweetEsquema = mongoose.Schema({
     descripcion: {
         type: String,

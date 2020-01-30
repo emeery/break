@@ -15,7 +15,7 @@ const rutas: Routes = [
     {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
     {path: 'tweets', component: TweetsComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'w'} // bg
-    // {path: 'replies', component: AnswersComponent},
+    // {path: 'replies', component: AnswersComñponent},
     // {path: 'media', component: MediaComponent},
     // {path: 'likes', component: LikesComponent},
 

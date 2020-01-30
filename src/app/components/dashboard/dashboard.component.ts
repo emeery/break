@@ -8,7 +8,8 @@ import { count } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  todos: string[] = ['bun venit', 'bienvenue', '歡迎', 'welcome', 'welkom', 'benvenuto', '	fáilte', 'bienvenido'];
+  todos: string[] = [
+    'bun venit', 'bienvenue', '歡迎', 'welcome', 'welkom', 'benvenuto', 'fáilte', 'bienvenido', 'a', 'mi', 'portafalio', ':)'];
   saludo = '';
   constructor() { }
   ngOnInit() {
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
     const subscribe = source.subscribe(i => {
       this.saludo = this.todos[i];
     });
-    setTimeout(() => subscribe.unsubscribe(), 9000);
+    setTimeout(() => subscribe.unsubscribe(), 12000);
   }
 
 }

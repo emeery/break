@@ -7,6 +7,8 @@
 
 # dependencies
 /node_modules
+/src/environments/environments.prod.ts
+/src/environments/environments.ts
 
 # IDEs and editors
 /.idea

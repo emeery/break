@@ -21,10 +21,11 @@ const usuarioEsquema = mongoose.Schema({
         }
 
     },
-    // tokens: [{
-    //     token: { type: String, required: true }
-    // }],
-    // edad
+    locacion: { type: String, required: true, minlength: 3 },
+    bio: { type: String },
+    skills: { type: [String] },
+    fecha: { type: Date, default: Date.now },
+    posicion: { type: String, required: true },
     contraseña: {
         type: String,
         required: true,
@@ -60,11 +61,28 @@ usuarioEsquema.methods.toJSON = function() {
     return userP
 }
 usuarioEsquema.virtual('tweetp', {
-    ref: 'Tweet',
-    localField: '_id',
-    foreignField: 'titular'
-})
-
+        ref: 'Tweet',
+        localField: '_id',
+        foreignField: 'titular'
+    })
+    // experiencia: [{ array
+    //     titulo: { type: String, required: true },
+    //     compañia: { type: String, required: true },
+    //     titulo: { type: String, required: true },
+    //     from: { type: Date, required: true },
+    //     to: { type: String },
+    //     actualmente: { type: Boolean, default: false },
+    //     descripcion: { type: String, required: true }
+    // }],
+    // social: { object
+    //     youtube: { type: String },
+    //     twitter: { type: String },
+    //     linkedin: { type: String }
+    // },
+    // tokens: [{
+    //     token: { type: String, required: true }
+    // }],
+    // edad
 usuarioEsquema.plugin(uniqueV)
 const Usuario = mongoose.model('Usuario', usuarioEsquema)
 module.exports = Usuario;
