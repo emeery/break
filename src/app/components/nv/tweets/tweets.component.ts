@@ -3,9 +3,8 @@ import { TweetsService } from 'src/app/services/tweets.service';
 import { Tweet } from 'src/app/models/tweet';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { EdittweetComponent } from '../../edittweet/edittweet.component';
 import { AuthService } from 'src/app/auth/auth.service';
+import { EdittweetComponent } from 'src/app/shared/edittweet/edittweet.component';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',

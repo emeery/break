@@ -22,15 +22,13 @@ export class AuthService {
     const user: User = {nombre: nm, correo: em, contraseña: ps};
     this.http.post<{mensaje: string}>(
       BACKEND_URL + 'signup', user)
-      .subscribe(res => {
-        console.log('ress', res); }, e => { this.autListen.next(false); });
+      .subscribe(res => e => { this.autListen.next(false); });
   }
   loginUser(em: string, ps: string) {
     const user = {correo: em, contraseña: ps};
     return this.http.post<{mensaje: string, token: string}>(
       BACKEND_URL + 'login', user)
     .subscribe(res => {
-      console.log('res', res.mensaje);
       const token = res.token;
       this.token = token;
       if (token) {

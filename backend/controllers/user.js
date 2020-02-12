@@ -53,7 +53,7 @@ router.post('/login', async(req, res) => {
 router.get('', async(req, res) => {
     try {
         const users = await Usuario.find({})
-        res.status(200).json({ mensaje: 'todos los usuarios', users })
+        res.status(200).json({ mensaje: 'todos los usuarioss', users })
     } catch (error) {
 
     }

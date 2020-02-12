@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { SignupComponent } from 'src/app/auth/signup/signup.component';
-import { AddtweetComponent } from 'src/app/components/addtweet/addtweet.component';
+import { AddtweetComponent } from 'src/app/shared/addtweet/addtweet.component';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
 
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   note: string;
   plus: string;
   exit: string;
-  user: string;
+  profile: string;
   isAut = false;
   private autSub: Subscription;
   constructor(
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.note = '../../../assets/images/png/note.png';
     this.plus = '../../../assets/images/png/plus.png';
     this.exit = '../../../assets/images/png/exit.png';
-    this.user = '../../../assets/images/png/user.png';
+    this.profile = '../../../assets/images/png/g.png';
   }
   logout() {
     this.autService.logout();
