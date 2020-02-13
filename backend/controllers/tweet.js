@@ -45,7 +45,7 @@ router.put('/:id', async(req, res) => {
             _id: req.body.id,
             descripcion: req.body.descripcion
         })
-        const tt = await Tweet.updateOne({ _id: req.params.id }, newTweet);
+        await Tweet.updateOne({ _id: req.params.id }, newTweet);
         res.status(200).json({ mensaje: 'tweet actualizado' })
     } catch (error) {
 

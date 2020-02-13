@@ -7,8 +7,24 @@ const usuarioEsquema = mongoose.Schema({
     nombre: {
         type: String,
         required: true,
-        minlength: 3,
+        minlength: 3
     },
+    fecha: {
+        type: Date,
+        default: Date.now
+    },
+    skills: {
+        type: [String]
+    },
+    avatar: {
+        type: String
+    },
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }],
     correo: {
         type: String,
         required: true,
@@ -19,13 +35,7 @@ const usuarioEsquema = mongoose.Schema({
                 throw new Error('correo invalido')
             }
         }
-
     },
-    locacion: { type: String, required: true, minlength: 3 },
-    bio: { type: String },
-    skills: { type: [String] },
-    fecha: { type: Date, default: Date.now },
-    posicion: { type: String, required: true },
     contraseña: {
         type: String,
         required: true,
@@ -39,50 +49,42 @@ const usuarioEsquema = mongoose.Schema({
     }
 })
 usuarioEsquema.statics.findCredencial = async(correo, pase) => {
-    const user = await Usuario.findOne({ correo })
+    const user = await Usuario.findOne({
+        correo
+    })
     const match = await crypt.compare(pase, user.contraseña)
-    if (!match) { throw new Error('no se pudo loguear') }
+    if (!match) {
+        throw new Error('no se pudo loguear')
+    }
     return user;
 }
-
 usuarioEsquema.methods.generaToken = async function() {
-    const user = this
-    const token = jwt.sign({ correo: user.correo, useride: user._id },
-            'la_llave', { expiresIn: '1h' }) // any
-        // user.tokens = user.tokens.concat({ token })
-        // await user.save()
-    return token
-}
-usuarioEsquema.methods.toJSON = function() {
-    const user = this
-    userP = user.toObject()
-    delete userP.contraseña
-    delete userP.tokens
-    return userP
-}
-usuarioEsquema.virtual('tweetp', {
-        ref: 'Tweet',
-        localField: '_id',
-        foreignField: 'titular'
-    })
-    // experiencia: [{ array
-    //     titulo: { type: String, required: true },
-    //     compañia: { type: String, required: true },
-    //     titulo: { type: String, required: true },
-    //     from: { type: Date, required: true },
-    //     to: { type: String },
-    //     actualmente: { type: Boolean, default: false },
-    //     descripcion: { type: String, required: true }
-    // }],
-    // social: { object
-    //     youtube: { type: String },
-    //     twitter: { type: String },
-    //     linkedin: { type: String }
-    // },
-    // tokens: [{
-    //     token: { type: String, required: true }
-    // }],
-    // edad
+        const user = this
+        const token = jwt.sign({
+                    correo: user.correo,
+                    useride: user._id
+                },
+                'la_llave') // any { expiresIn: '1h' }
+        user.tokens = user.tokens.concat({
+            token
+        })
+
+        await user.save()
+        return token
+    }
+    // usuarioEsquema.methods.toJSON = function() {
+    //     const user = this
+    //     userP = user.toObject()
+    //     delete userP.contraseña
+    //     delete userP.tokens
+    //     return userP
+    // }
+    // usuarioEsquema.virtual('tweetp', {
+    //     ref: 'Tweet',
+    //     localField: '_id',
+    //     foreignField: 'titular'
+    // })
+
 usuarioEsquema.plugin(uniqueV)
 const Usuario = mongoose.model('Usuario', usuarioEsquema)
 module.exports = Usuario;
