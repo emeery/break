@@ -59,32 +59,26 @@ usuarioEsquema.statics.findCredencial = async(correo, pase) => {
     return user;
 }
 usuarioEsquema.methods.generaToken = async function() {
-        const user = this
-        const token = jwt.sign({
-                    correo: user.correo,
-                    useride: user._id
-                },
-                'la_llave') // any { expiresIn: '1h' }
-        user.tokens = user.tokens.concat({
-            token
-        })
+    const user = this
+    const token = jwt.sign({
+                correo: user.correo,
+                useride: user._id
+            },
+            'la_llave') // any { expiresIn: '1h' }
+    user.tokens = user.tokens.concat({
+        token
+    })
 
-        await user.save()
-        return token
-    }
-    // usuarioEsquema.methods.toJSON = function() {
-    //     const user = this
-    //     userP = user.toObject()
-    //     delete userP.contraseña
-    //     delete userP.tokens
-    //     return userP
-    // }
-    // usuarioEsquema.virtual('tweetp', {
-    //     ref: 'Tweet',
-    //     localField: '_id',
-    //     foreignField: 'titular'
-    // })
+    await user.save()
+    return token
+}
+
+usuarioEsquema.virtual('tareap', {
+    ref: 'tweet',
+    localField: '_id',
+    foreignField: 'titular'
+})
 
 usuarioEsquema.plugin(uniqueV)
-const Usuario = mongoose.model('Usuario', usuarioEsquema)
+const Usuario = mongoose.model('usuario', usuarioEsquema)
 module.exports = Usuario;

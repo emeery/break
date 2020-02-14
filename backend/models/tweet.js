@@ -6,10 +6,10 @@ const tweetEsquema = mongoose.Schema({
     },
     titular: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario',
+        ref: 'usuario',
         required: true
     }
 }, { timestamps: true })
 
-const Tweet = mongoose.model('Tweet', tweetEsquema)
+const Tweet = mongoose.model('tweet', tweetEsquema)
 module.exports = Tweet;

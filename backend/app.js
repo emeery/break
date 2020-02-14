@@ -5,6 +5,7 @@ require('./db/mongo')
 
 const tweetRouter = require('./controllers/tweet')
 const userRouter = require('./controllers/user')
+const profileRouter = require('./controllers/profile')
 var app = express()
 
 app.use(bodyparser.json())
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
     );
     next();
 });
-
+app.use('/profile', profileRouter)
 app.use('/tweet', tweetRouter)
 app.use('/user', userRouter)
 module.exports = app;

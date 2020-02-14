@@ -23,16 +23,24 @@ router.post('', aut, async(req, res) => {
 router.get('', aut, async(req, res) => {
     try {
         const tweets = await Tweet.find({})
-            // .skip(xpagina * (pagina - 1))
-            // .limit(xpagina)
-            // .exec()
         res.status(200).json({
             mensaje: "todos los tweets",
             tweets,
-            // totalPerfiles: total
         })
     } catch (e) { res.status(500).send() }
 });
+
+router.get('/ts', aut, async(req, res) => {
+  try {
+      await req.userr.populate('tareap').execPopulate()
+      res.status(200).json({
+        mensaje: "tus tweets",
+        tweets: req.userr.tareap,
+        // totalPerfiles: total
+    })
+  } catch (e) { console.log('e',e); res.status(500).send() }
+});
+
 router.get('/:id', async(req, res) => {
     try {
         const tweet = await Tweet.findById(req.params.id);

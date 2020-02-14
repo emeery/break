@@ -16,10 +16,12 @@ export class TweetsService {
   constructor(private http: HttpClient) { }
   getTweets() {
     this.http.get<{mensaje: string; tweets: any}>(
-     BACKEND_URL)
+     BACKEND_URL + 'ts')
     .pipe(
       map((res) => {
+        console.log('r', res);
         return res.tweets.map(t => {
+          console.log('t', t);
           return {
               id: t._id,
               descripcion: t.descripcion,
