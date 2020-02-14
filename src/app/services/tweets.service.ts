@@ -21,7 +21,6 @@ export class TweetsService {
       map((res) => {
         console.log('r', res);
         return res.tweets.map(t => {
-          console.log('t', t);
           return {
               id: t._id,
               descripcion: t.descripcion,
@@ -30,7 +29,6 @@ export class TweetsService {
       })
     )
     .subscribe(twtD => {
-      console.log('tt', twtD);
       this.tweets = twtD;
       this.tweetChanged.next([...this.tweets]);
     });
