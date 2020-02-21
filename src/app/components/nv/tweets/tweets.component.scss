@@ -13,14 +13,21 @@
     background: #191919;
     color: white;
     text-align: center;
-    margin-top: 220px;
+    margin-top: 420px;
 }
 
 .btn {
     background: #ffe082;
     width: 100%;
     color: salmon;
-    font-family: "Oswald", sans-serif;
+    font-family: $osw;
+}
+
+.head {
+    background: transparent;
+    color: orangered;
+    width: 100%;
+    font-family: $osw;
 }
 
 .mat-card {

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { AuthService } from 'src/app/auth/auth.service';
 import { EdittweetComponent } from 'src/app/shared/edittweet/edittweet.component';
+import { AddtweetComponent } from 'src/app/shared/addtweet/addtweet.component';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
@@ -46,11 +47,12 @@ export class TweetsComponent implements OnInit, OnDestroy {
   }
   onEdit(tweetId: string) {
     this.tService.getTweet(tweetId)
-    .subscribe(twet => {
-        console.log('r', twet);
-    });
+    .subscribe(twet => {});
     this.dlg.open(EdittweetComponent, {data: {id: tweetId }});
   }
+  onAddTweet() {
+    this.dlg.open(AddtweetComponent);
+   }
   onDelete(tweetId: string) {
     this.tService.deleteTweet(tweetId).subscribe(() => {
       this.tService.getTweets();

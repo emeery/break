@@ -10,7 +10,7 @@ const rutas: Routes = [
     {path: '', redirectTo: 'w', pathMatch: 'full'},
     {path: 'w', component: DashboardComponent},
     {path: 'profile', component: ProfileComponent},
-    {path: 'tweets', component: TweetsComponent, canActivate: [AuthGuard]},
+    {path: 'tweets', component: TweetsComponent},
     {path: '**', redirectTo: 'w'} //
   ];
 @NgModule({

@@ -1,8 +1,8 @@
-# Break
+## Portafolio
 
-## Un break - Gerardo Bautista 
+## Un break - Gerardo Bautista
 
-### gerardobautista@outlook
+### gerardobautista@
 
 ![alt text](https://raw.githubusercontent.com/emeery/break/master/src/assets/images/png/fit.png)
 
