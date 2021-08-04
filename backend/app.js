@@ -2,8 +2,7 @@ const express = require('express')
 require('./src/db/db')
 
 const userRouter = require('./src/routes/user.route')
-
-var app = express()
+const app = express()
 
 app.use(express.json())
 app.use((req, res, next) => {
@@ -18,9 +17,7 @@ app.use((req, res, next) => {
     );
     next();
 });
-
 app.use('/user', userRouter)
-
 app.listen(process.env.PORT, function () {
     console.log('up')
     console.log(process.env.PORT)

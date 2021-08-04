@@ -14,3 +14,18 @@ exports.signup= async(req, res) => {
       res.status(400).json({error: e})
   }
 }
+exports.signin= async(req, res) => {
+  try {
+      const user = await User.findCredential(
+          req.body.email,
+          req.body.password
+      )
+      const token = await user.generateToken()
+      res.status(200).json({
+          user,
+          token,
+      })
+  } catch (e) {
+      res.status(401).json({ msg: 'verify your data' })
+  }
+}
