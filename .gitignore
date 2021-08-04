@@ -4,9 +4,10 @@
 /dist
 /tmp
 /out-tsc
-
+/nodemon.json
 # dependencies
 /node_modules
+
 # /src/environments
 /backend/node_modules
 # IDEs and editors
