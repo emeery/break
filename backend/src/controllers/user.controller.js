@@ -29,3 +29,16 @@ exports.signin= async(req, res) => {
       res.status(401).json({ msg: 'verify your data' })
   }
 }
+exports.me= async(req, res) => {
+  console.log('jeje')
+  res.send(req.userr);
+}
+exports.logout= async(req, res) => {
+  try {
+    req.userr.tokens = req.userr.tokens.filter(t => {
+        return t.token !== req.tokenn
+    })
+    await req.userr.save()
+    res.json(req.userr)
+} catch (e) { res.status(500).send(e) }
+}
