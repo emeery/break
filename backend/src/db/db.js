@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const mongo_atlas = process.env.MONGO_ATLAS;
-const uri = 'mongodb+srv://lucasummer:'+mongo_atlas+'@cluster0.1dgrd.mongodb.net/break?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://'+process.env.USER+':'+process.env.MONGO_ATLAS+'@cluster0.1dgrd.mongodb.net/break?retryWrites=true&w=majority';
 mongoose
     .connect(
       uri, {
