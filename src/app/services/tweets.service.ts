@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Tweet } from '../models/tweet';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 const BACKEND_URL = environment.apiUrl + '/tweet/';
 
@@ -15,7 +15,7 @@ export class TweetsService {
   private tweetChanged = new Subject<Tweet[]>();
   constructor(private http: HttpClient) { }
   getTweets() {
-    this.http.get<{mensaje: string; tweets: any}>(
+    this.http.get<{msg: string; tweets: any}>(
      BACKEND_URL + 'ts')
     .pipe(
       map((res) => {
@@ -23,7 +23,7 @@ export class TweetsService {
         return res.tweets.map(t => {
           return {
               id: t._id,
-              descripcion: t.descripcion,
+              description: t.description,
           };
         });
       })
@@ -34,24 +34,24 @@ export class TweetsService {
     });
   }
   addTweet(title: string) {
-    const tweetData: Tweet = {id: null, descripcion: title};
-    this.http.post(BACKEND_URL, tweetData)
+    const tweetData: Tweet = {id: null, description: title}
+    this.http.post(BACKEND_URL + 'create', tweetData)
     .subscribe(res => {
       this.getTweets();
     });
   }
   getTweet(ide: string) {
     return this.http
-    .get<{_id: string, descripcion: any }>(
+    .get<{_id: string, description: any }>(
         BACKEND_URL + ide)
       .pipe(
         map((res) => {
-          return {id: res._id, descripcion: res.descripcion};
+          return {id: res._id, descripcion: res.description};
         })
       );
   }
   editTweet(id: string, desc: string) {
-    const tweet: Tweet = {id, descripcion: desc};
+    const tweet: Tweet = {id, description: desc};
     this.http.put(BACKEND_URL + id, tweet)
     .subscribe(res => {
       this.getTweets();

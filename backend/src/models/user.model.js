@@ -51,7 +51,17 @@ userSchema.methods.generateToken = async function () {
   });
   await user.save();
   return token;
-};
-userSchema.plugin(uniquev);
+}
+userSchema.methods.getUserId = async(t) => { // G
+  const token = t;
+  const decoded = jwt.verify(token, process.env.KEY);
+  return decoded.useride
+}
+userSchema.virtual('tweetp', {
+  ref: 'tweets',
+  localField: '_id',
+  foreignField: 'owner'
+})
+userSchema.plugin(uniquev)
 const User = mongoose.model("user", userSchema);
 module.exports = User;

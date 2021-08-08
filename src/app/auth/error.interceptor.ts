@@ -17,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         let errorMensaje = 'ocurrió un error';
         if (err.error.mensaje) { errorMensaje = err.error.mensaje; }
-        this.dlg.open(ErrorComponent, {data: {mensaje: errorMensaje} });
+        this.dlg.open(ErrorComponent, {data: {msg: errorMensaje} });
         return throwError(err);
       })
     );

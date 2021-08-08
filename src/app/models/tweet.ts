@@ -3,13 +3,13 @@
 // import { Ingrediente } from '../../compatido/model/ingrediente.model';
 export class Tweet {
   public id: string;
-  public descripcion: string;
+  public description: string;
 
   constructor(
     id: string,
-    descripcion: string,
+    description: string,
     ) {
       this.id = id;
-      this.descripcion = descripcion;
+      this.description = description;
     }
 }

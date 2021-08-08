@@ -23,7 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { ErrorComponent } from './layout/error/error.component';
 import { EdittweetComponent } from './shared/edittweet/edittweet.component';
-// import { ErrorI}
+import { MessageComponent } from './shared/message/message.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { EdittweetComponent } from './shared/edittweet/edittweet.component';
     DashboardComponent,
     ProfileComponent,
     ErrorComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import { EdittweetComponent } from './shared/edittweet/edittweet.component';
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
-  entryComponents: [ ErrorComponent, AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent],
+  entryComponents: [ ErrorComponent, AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent, MessageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

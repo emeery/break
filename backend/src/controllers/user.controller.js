@@ -21,16 +21,17 @@ exports.signin= async(req, res) => {
           req.body.password
       )
       const token = await user.generateToken()
+      const userId = await user.getUserId(token);
       res.status(200).json({
           user,
           token,
+          userId
       })
   } catch (e) {
       res.status(401).json({ msg: 'verify your data' })
   }
 }
 exports.me= async(req, res) => {
-  console.log('jeje')
   res.send(req.userr);
 }
 exports.logout= async(req, res) => {

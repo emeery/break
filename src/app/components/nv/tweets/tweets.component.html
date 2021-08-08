@@ -5,7 +5,7 @@
     <mat-card *ngIf="tweets.length > 0; else notFirst;">
         <mat-card *ngFor="let t of tweets">
             <mat-card-content>
-                {{t.descripcion}}
+                {{t.description}}
             </mat-card-content>
             <mat-card-actions *ngIf="estaAut">
                 <button (click)="onEdit(t.id)" mat-button>EDIT</button>
@@ -14,9 +14,7 @@
         </mat-card>
     </mat-card>
 </div>
-<button class="btn" (click)="onAddTweet()" mat-button>AGREGA UN TUIT</button>
+<button class="btn" (click)="onAddTweet()" mat-button>AGREGAR</button>
 <ng-template #notFirst>
-    <div class="child">
-        <button mat-button>AGREGA</button>
-    </div>
+    <mat-card>AGREGA UN NUEVO TWEET PARA COMENZAR </mat-card>
 </ng-template>

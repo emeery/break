@@ -2,6 +2,7 @@ const express = require('express')
 require('./src/db/db')
 
 const userRouter = require('./src/routes/user.route')
+const tweetRouter = require('./src/routes/tweet.route')
 const app = express()
 
 app.use(express.json())
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/user', userRouter)
+app.use('/tweet', tweetRouter)
 app.listen(process.env.PORT, function () {
     console.log('up')
     console.log(process.env.PORT)

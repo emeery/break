@@ -10,7 +10,7 @@ const auth = async(req, res, next) => {
         req.tokenn = token
         next()
     } catch (error) {
-        res.status(401).json({ mensaje: "Enter your credentials" })
+        res.status(401).json({ msg: "Enter your credentials" })
     }
 }
 module.exports = auth
