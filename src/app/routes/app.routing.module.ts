@@ -1,10 +1,8 @@
 import {Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { TweetsComponent } from '../components/nv/tweets/tweets.component';
+import { TweetsComponent } from '../components/tweets/tweets.component';
 import { DashboardComponent } from '../layout/dashboard/dashboard.component';
 import { AuthGuard } from '../auth/aut.guard';
-// import { ProfileComponent } from '../components/profile/profile.component';
-// import { LikesComponent } from '../components/nv/likes/likes.component';
 
 const rutas: Routes = [
     {path: '', redirectTo: 'w', pathMatch: 'full'},

@@ -18,11 +18,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   onLogin(form: NgForm) {
-    if (form.invalid) { return; }
+    if (form.invalid)  return;
     this.autService.loginUser(
       form.value.correo,
-      form.value.contraseña );
-    this.dlgRef.close();
+      form.value.contraseña )
+    this.dlgRef.close()
   }
 
 }

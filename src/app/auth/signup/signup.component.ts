@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { LoginComponent } from '../login/login.component';
 import { MatDialog,MatDialogRef } from '@angular/material';
-import { MessageComponent } from 'src/app/shared/message/message.component';
+import { MessageComponent } from 'src/app/components/shared/message/message.component';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

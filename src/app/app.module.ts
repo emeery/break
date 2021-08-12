@@ -5,35 +5,27 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
-import { NavigationComponent } from './components/nv/navigation/navigation.component';
-import { TweetsComponent } from './components/nv/tweets/tweets.component';
-import { AppRoutingModule } from './routes/app.routing.module';
-import { AnswersComponent } from './components/nv/answers/answers.component';
-import { MediaComponent } from './components/nv/media/media.component';
-import { LikesComponent } from './components/nv/likes/likes.component';
-import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AddtweetComponent } from './shared/addtweet/addtweet.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { TweetsComponent } from './components/tweets/tweets.component';
+import { AppRoutingModule } from './routes/app.routing.module';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AddtweetComponent } from './components/shared/addtweet/addtweet.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
-import { MatVideoModule } from 'mat-video';
 import { AuthInterceptor} from './auth/aut.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { ErrorComponent } from './layout/error/error.component';
-import { EdittweetComponent } from './shared/edittweet/edittweet.component';
-import { MessageComponent } from './shared/message/message.component';
+import { EdittweetComponent } from './components/shared/edittweet/edittweet.component';
+import { MessageComponent } from './components/shared/message/message.component';
+import { MatVideoModule } from 'mat-video';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavigationComponent,
     TweetsComponent,
-    AnswersComponent,
-    MediaComponent,
-    LikesComponent,
     AddtweetComponent,
     SignupComponent,
     LoginComponent,

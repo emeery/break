@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { SignupComponent } from 'src/app/auth/signup/signup.component';
-import { AddtweetComponent } from 'src/app/shared/addtweet/addtweet.component';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
+import { AddtweetComponent } from 'src/app/components/shared/addtweet/addtweet.component';
 
 @Component({
   selector: 'app-header',

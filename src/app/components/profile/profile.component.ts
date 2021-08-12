@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { AddtweetComponent } from 'src/app/shared/addtweet/addtweet.component';
+import { AddtweetComponent } from '../shared/addtweet/addtweet.component';
 
 @Component({
   selector: 'app-profile',
