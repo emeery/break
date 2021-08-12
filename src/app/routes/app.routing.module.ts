@@ -1,7 +1,7 @@
 import {Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { TweetsComponent } from '../components/tweets/tweets.component';
-import { DashboardComponent } from '../layout/dashboard/dashboard.component';
+import { DashboardComponent } from '../components/layout/dashboard/dashboard.component';
 import { AuthGuard } from '../auth/aut.guard';
 
 const rutas: Routes = [
