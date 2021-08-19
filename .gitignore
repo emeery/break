@@ -6,10 +6,9 @@
 /out-tsc
 /nodemon.json
 # dependencies
-/node_modules
+node_modules/
 
 # /src/environments
-/backend/node_modules
 # IDEs and editors
 /.idea
 .project
