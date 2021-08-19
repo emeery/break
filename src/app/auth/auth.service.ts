@@ -22,7 +22,7 @@ export class AuthService {
     const user: User = {name : nm, email: em, password: ps};
     return this.http.post<{msg: string, user: string}>(
       BACKEND_URL + 'signup', user)
-      // .subscribe(res => e => { this.autListen.next(false); });
+      // .subscribe(res => error => { this.autListen.next(false); });
   }
   loginUser(em: string, ps: string) {
     const user = {email: em, password: ps};
@@ -34,14 +34,38 @@ export class AuthService {
       if (token) {
         this.estaAut = true;
         this.autListen.next(true);
+        this.setStorageAuth(token);
       }
       this.router.navigate(['/tweets']);
-    }, e => {  });
+    }, e => { this.autListen.next(false) });
+  }
+  autUserAuth() {
+    const dataAut = this.getStorageAuth()
+    if(!dataAut) return;
+    const token = dataAut.token;
+    if(token) {
+      this.token = dataAut.token;
+      this.estaAut = true;
+      this.autListen.next(true)
+      this.router.navigate(['/tweets'])
+    }
+  }
+  setStorageAuth(token: string) {
+    localStorage.setItem('token',token)
+  }
+  getStorageAuth() {
+    const t = localStorage.getItem('token')
+    if(!t) return;
+    return {token: t}
+  }
+  cleanStorageAuth() {
+    localStorage.removeItem('token')
   }
   logout() {
     this.token = null;
     this.estaAut = false;
     this.autListen.next(false);
+    this.cleanStorageAuth();
     this.router.navigate(['/start']);
   }
 }

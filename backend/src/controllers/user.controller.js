@@ -9,9 +9,9 @@ exports.signup= async(req, res) => {
           password: encrypted_password,
       })
       await user.save()
-      res.status(201).json({msg:'user created', user})
+      res.status(201).json({msg:'usuario creado', user})
   } catch (e) {
-      res.status(400).json({error: e})
+      res.status(400).json({msg: 'no se pudo registrar'})
   }
 }
 exports.signin= async(req, res) => {
@@ -28,7 +28,7 @@ exports.signin= async(req, res) => {
           userId
       })
   } catch (e) {
-      res.status(401).json({ msg: 'verify your data' })
+      res.status(401).json({ msg: 'verifica tus credenciales' })
   }
 }
 exports.me= async(req, res) => {

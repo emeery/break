@@ -8,7 +8,7 @@
                 {{t.description}}
             </mat-card-content>
             <mat-card-actions *ngIf="estaAut">
-                <button (click)="onEdit(t.id)" mat-button>EDIT</button>
+                <button (click)="onEdit(t.id)" mat-button></button>
                 <button (click)="onDelete(t.id)" mat-button>X</button>
             </mat-card-actions>
         </mat-card>
@@ -18,3 +18,4 @@
 <ng-template #notFirst>
     <mat-card>AGREGA UN NUEVO TWEET PARA COMENZAR </mat-card>
 </ng-template>
+|

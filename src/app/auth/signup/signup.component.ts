@@ -20,10 +20,10 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
   onSignup(form: FormGroup) {
     this.autService.createUser(
-      form.value.nombre,
-      form.value.correo,
-      form.value.contraseña).
-    subscribe(res => {
+      form.value.name,
+      form.value.email,
+      form.value.password)
+      .subscribe(res => {
       this.dlgL.close()
       this.dlg.open(MessageComponent, {data: {msg: res.msg}})
     })
