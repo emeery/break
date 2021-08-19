@@ -1,19 +1,23 @@
 <div>
+  <mat-progress-bar *ngIf="spinner" mode="indeterminate"></mat-progress-bar>
+
     <form (submit)="onSignup(f)" #f="ngForm">
         <mat-dialog-content>
             <h1 mat-dialog-title>Registrate</h1>
-            <mat-form-field>
-                <input placeholder="Nombre" matInput type="text" name="nombre" ngModel required>
-            </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput type="email" name="email" ngModel #emailE="ngModel" required />
+              <input matInput type="text" name="name" ngModel #nameE="ngModel"  required autocomplete="off" />
+              <mat-placeholder class="placeholder">Name</mat-placeholder>
+              <mat-error *ngIf="nameE.invalid"> ingresa un nombre</mat-error>
+          </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput type="email" name="email" ngModel #emailE="ngModel"  required autocomplete="off" />
                 <mat-placeholder class="placeholder">Correo</mat-placeholder>
                 <mat-error *ngIf="emailE.invalid"> ingresa un email valido</mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput type="password" name="password" ngModel #pssE="ngModel" required />
+                <input matInput type="password" name="password" ngModel #pswE="ngModel" required autocomplete="off" />
                 <mat-placeholder class="placeholder">Contraseña</mat-placeholder>
-                <mat-error *ngIf="pssE.invalid"> ingresa un email valido</mat-error>
+                <mat-error *ngIf="pswE.invalid"> ingresa un email valido</mat-error>
             </mat-form-field>
         </mat-dialog-content>
         <mat-dialog-actions>

@@ -1,17 +1,17 @@
 <div>
-    <form (submit)="onLogin(f)" #f="ngForm">
+    <form (submit)="onSignin(f)" #f="ngForm">
       <h1 mat-dialog-title>
-        LOGIN
+        INGRESAR
       </h1>
         <mat-dialog-content>
             <mat-form-field class="example-full-width">
-                <input matInput type="email" name="correo" ngModel #emailE="ngModel" required />
+                <input matInput type="email" name="email" ngModel #emailE="ngModel" required autocomplete="off" />
                 <mat-placeholder class="placeholder">Email</mat-placeholder>
                 <mat-error *ngIf="emailE.invalid"> ingresa un email valido</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput type="password" name="contraseña" ngModel #pssE="ngModel" required />
+                <input matInput type="password" name="password" ngModel #pssE="ngModel" required />
                 <mat-placeholder class="placeholder">Password</mat-placeholder>
                 <mat-error *ngIf="pssE.invalid"> ingresa un email valido</mat-error>
             </mat-form-field>

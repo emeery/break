@@ -11,7 +11,7 @@ exports.signup= async(req, res) => {
       await user.save()
       res.status(201).json({msg:'usuario creado', user})
   } catch (e) {
-      res.status(400).json({msg: 'no se pudo registrar'})
+      res.status(400).json(e)
   }
 }
 exports.signin= async(req, res) => {
