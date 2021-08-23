@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Tweet } from '../models/tweet';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 
 const BACKEND_URL = environment.apiUrl + '/tweet/';
 
