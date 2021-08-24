@@ -15,7 +15,7 @@ import { AddtweetComponent } from '../shared/addtweet/addtweet.component';
 export class TweetsComponent implements OnInit, OnDestroy {
   tweets: Tweet[] = [];
   cargando = false;
-  estaAut = false;
+  isAuth = false;
   private tweetSubs: Subscription;
   private autSubs: Subscription;
   constructor(
@@ -35,15 +35,15 @@ export class TweetsComponent implements OnInit, OnDestroy {
       this.cargando = false;
       this.tweets = twt;
     });
-    this.estaAut = this.autService.getIsAut();
+    this.isAuth = this.autService.getIsAuth();
     this.autSubs = this.autService.getAutListen()
     .subscribe(aut => {
-      this.estaAut = aut;
+      this.isAuth = aut;
     });
-    this.estaAut = this.autService.getIsAut();
+    this.isAuth = this.autService.getIsAuth();
     this.autService.getAutListen()
     .subscribe(aut => {
-      this.estaAut = aut;
+      this.isAuth = aut;
     });
   }
   onEdit(tweetId: string) {

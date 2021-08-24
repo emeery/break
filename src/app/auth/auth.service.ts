@@ -10,14 +10,14 @@ const BACKEND_URL = environment.apiUrl + '/user/';
 })
 export class AuthService {
   private token: string;
-  private estaAut = false;
+  private isAuth = false;
   private autListen = new Subject<boolean>();
   constructor(
     private http: HttpClient, private router: Router
     ) { }
   getToken() { return this.token; }
   getAutListen() { return this.autListen.asObservable(); }
-  getIsAut() {return this.estaAut; }
+  getIsAuth() {return this.isAuth; }
   createUser(nm: string, em: string, ps: string) {
     const user: User = {name : nm, email: em, password: ps};
     return this.http.post<{msg: string, user: string}>(
@@ -32,7 +32,7 @@ export class AuthService {
       const token = res.token;
       this.token = token;
       if (token) {
-        this.estaAut = true;
+        this.isAuth = true;
         this.autListen.next(true);
         this.setStorageAuth(token);
       }
@@ -45,7 +45,7 @@ export class AuthService {
     const token = dataAut.token;
     if(token) {
       this.token = dataAut.token;
-      this.estaAut = true;
+      this.isAuth = true;
       this.autListen.next(true)
       this.router.navigate(['/tweets'])
     }
@@ -63,7 +63,7 @@ export class AuthService {
   }
   logout() {
     this.token = null;
-    this.estaAut = false;
+    this.isAuth = false;
     this.autListen.next(false);
     this.cleanStorageAuth();
     this.router.navigate(['/start']);

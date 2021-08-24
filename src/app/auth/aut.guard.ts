@@ -1,7 +1,5 @@
 import {
   CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
   Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -14,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ) { }
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
-    const estaAut = this.autService.getIsAut();
+    const estaAut = this.autService.getIsAuth();
     if (!estaAut) {
       this.router.navigate(['/']); // bg
     }

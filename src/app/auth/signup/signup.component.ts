@@ -25,8 +25,8 @@ export class SignupComponent implements OnInit {
       .createUser(form.value.name, form.value.email, form.value.password)
       .subscribe(
         (res) => {
-          this.dlgL.close();
-          this.dlg.open(MessageComponent, { data: { msg: res.msg } });
+          this.dlgL.close()
+          this.dlg.open(MessageComponent, { data: { msg: res.msg } })
         },(error) => (this.spinner = false)
       );
   }

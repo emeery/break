@@ -16,8 +16,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   note: string;
   plus: string;
   exit: string;
-  profile: string;
-  isAut = false;
+  user: string;
+  isAuth = false;
   private autSub: Subscription;
   constructor(
     private dlg: MatDialog,
@@ -25,11 +25,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) { }
   ngOnInit() {
     this.loadPng();
-    this.isAut = this.autService.getIsAut();
+    this.isAuth = this.autService.getIsAuth();
     this.autSub = this.autService.getAutListen()
       .subscribe(aut => {
-        this.isAut = aut;
-        console.log('utt', this.isAut);
+        this.isAuth = aut;
       });
   }
   loadPng() {
@@ -37,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.note = '../../../assets/images/png/note.png';
     this.plus = '../../../assets/images/png/plus.png';
     this.exit = '../../../assets/images/png/exit.png';
-    this.profile = '../../../assets/images/png/g.png';
+    this.user = '../../../assets/images/png/user.png';
   }
   logout() {
     this.autService.logout();

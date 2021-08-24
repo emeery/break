@@ -14,7 +14,6 @@ export class AuthInterceptor implements HttpInterceptor {
     // Observable<HttpEvent<any>>
     const jwt = this.authServicio.getToken();
     const authSolicitud = req.clone({
-      // setHeaders: { authorization: `Bearer ${this.authServicio.getToken()}`}
       headers: req.headers.set('authorization', 'Bearer ' + jwt)
     });
     // console.log(authSolicitud.headers);

@@ -7,34 +7,34 @@
 </span>
     <span class="spacer"></span>
     <ul>
-        <li *ngIf="isAut">
+        <li *ngIf="isAuth">
           <!-- routerLink="/profile" -->
             <a mat-button >
-                <img style="width: 30px;height:30px" [src]="profile" />
+                <img style="width: 30px;height:30px" [src]="user" />
             </a>
         </li>
-        <li *ngIf="isAut">
+        <!-- <li *ngIf="isAut">
             <a (click)="addTweet()" mat-button>
                 <img style="width: 30px;height:30px" [src]="plus" />
             </a>
-        </li>
-        <li *ngIf="isAut">
+        </li> -->
+        <li *ngIf="isAuth">
             <a mat-button routerLink="/tweets">
                 <img style="width: 30px;height:30px" [src]="note" />
             </a>
         </li>
-        <li *ngIf="isAut">
+        <li *ngIf="isAuth">
             <a (click)="logout()" mat-button>
               Salir
           </a>
         </li>
-        <li *ngIf="!isAut">
+        <li *ngIf="!isAuth">
             <a class="o" (click)="onSignup()" mat-button>
                 <!-- <img style="width: 30px;height:30px" [src]="in" /> -->
                 REGISTRO
             </a>
         </li>
-        <li *ngIf="!isAut">
+        <li *ngIf="!isAuth">
             <a class="o" (click)="onLogin()" mat-button>
                 <!-- <img style="width: 30px;height:30px" [src]="signup" /> -->
                 ENTRAR
