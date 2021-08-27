@@ -4,8 +4,8 @@ import { Tweet } from 'src/app/models/tweet';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { AuthService } from 'src/app/auth/auth.service';
-import { EdittweetComponent } from '../shared/edittweet/edittweet.component';
-import { AddtweetComponent } from '../shared/addtweet/addtweet.component';
+import { EdittweetComponent } from '../../shared/edittweet/edittweet.component';
+import { AddtweetComponent } from '../../shared/addtweet/addtweet.component';
 
 @Component({
   selector: 'app-tweets',

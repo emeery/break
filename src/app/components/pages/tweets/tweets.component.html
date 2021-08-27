@@ -7,7 +7,7 @@
             <mat-card-content>
                 {{t.description}}
             </mat-card-content>
-            <mat-card-actions *ngIf="estaAut">
+            <mat-card-actions *ngIf="isAuth">
                 <button (click)="onEdit(t.id)" mat-button></button>
                 <button (click)="onDelete(t.id)" mat-button>X</button>
             </mat-card-actions>
