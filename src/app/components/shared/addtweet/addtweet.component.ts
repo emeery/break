@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormBuilder } from '@angular/forms';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { FormBuilder } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 import { TweetsService } from 'src/app/services/tweets.service';
 
 @Component({

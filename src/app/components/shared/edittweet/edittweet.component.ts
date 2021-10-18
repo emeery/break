@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { TweetsService } from 'src/app/services/tweets.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Tweet } from 'src/app/models/tweet';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -11,7 +10,6 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class EdittweetComponent implements OnInit {
   private perfilId: string;
-  // private tweet: Tweet;
   tweetForm: FormGroup;
   constructor(
     public tService: TweetsService,

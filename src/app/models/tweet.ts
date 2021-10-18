@@ -1,6 +1,4 @@
 
-
-// import { Ingrediente } from '../../compatido/model/ingrediente.model';
 export class Tweet {
   public id: string;
   public description: string;
