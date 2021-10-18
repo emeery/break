@@ -4,7 +4,6 @@ exports.create = async (req, res) => {
     description: req.body.description,
     owner: req.userr._id,
   })
-  console.log(tweet)
   try {
     await tweet.save();
     res.status(201).json({
@@ -20,7 +19,6 @@ exports.create = async (req, res) => {
   }
 }
 exports.ts = async(req, res) => {
-  // console.log(req.userr.tweetp)
   try {
     await req.userr.populate('tweetp').execPopulate()
     res.status(200).json({

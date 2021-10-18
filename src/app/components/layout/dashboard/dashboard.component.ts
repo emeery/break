@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
-import { count } from 'rxjs/operators';
+// import { count } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,11 +16,11 @@ export class DashboardComponent implements OnInit {
     this.setWelcome();
   }
   setWelcome() {
-    const source = interval(1000);
+    const source = interval(500);
     const subscribe = source.subscribe(i => {
       this.saludo = this.todos[i];
     });
-    setTimeout(() => subscribe.unsubscribe(), 12000);
+    setTimeout(() => subscribe.unsubscribe(), 6500);
   }
 
 }

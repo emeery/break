@@ -19,7 +19,6 @@ export class TweetsService {
      BACKEND_URL + 'ts')
     .pipe(
       map((res) => {
-        console.log('r', res);
         return res.tweets.map(t => {
           return {
               id: t._id,

@@ -20,8 +20,4 @@ app.use((req, res, next) => {
 });
 app.use('/user', userRouter)
 app.use('/tweet', tweetRouter)
-app.listen(process.env.PORT, function () {
-    console.log('up')
-    console.log(process.env.PORT)
-
-});
+app.listen(process.env.PORT);

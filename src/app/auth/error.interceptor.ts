@@ -1,8 +1,4 @@
-import {
-  HttpInterceptor,
-  HttpRequest,
-  HttpHandler,
-  HttpErrorResponse} from '@angular/common/http';
+import { HttpInterceptor,HttpRequest,HttpHandler,HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -15,7 +11,6 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return next.handle(req).pipe(
       catchError((err: HttpErrorResponse) => {
-        console.log(err)
         let errorMsg = 'ocurrió un error';
         if(err.error.msg) errorMsg = err.error.msg;
         if(err.error.message) errorMsg = 'ese correo ya se encuentra registrado';
