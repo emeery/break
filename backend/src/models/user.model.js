@@ -44,7 +44,7 @@ userSchema.methods.generateToken = async function () {
       email: user.email,
       useride: user._id,
     },
-    process.env.KEY
+    process.env.JWT
   ); // expiresIn:
   user.tokens = user.tokens.concat({
     token,
@@ -54,7 +54,7 @@ userSchema.methods.generateToken = async function () {
 }
 userSchema.methods.getUserId = async(t) => { // G
   const token = t;
-  const decoded = jwt.verify(token, process.env.KEY);
+  const decoded = jwt.verify(token, process.env.JWT);
   return decoded.useride
 }
 userSchema.virtual('tweetp', {

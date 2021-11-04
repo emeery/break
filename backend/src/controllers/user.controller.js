@@ -27,7 +27,7 @@ exports.signin= async(req, res) => {
           token,
           userId
       })
-  } catch (e) {
+  } catch (e) { console.log(e)
       res.status(401).json({ msg: 'verifica tus credenciales' })
   }
 }
