@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TweetsComponent } from './components/pages/tweets/tweets.component';
 import { AppRoutingModule } from './routes/app.routing.module';
@@ -20,6 +19,7 @@ import { ErrorComponent } from './components/layout/error/error.component';
 import { EdittweetComponent } from './components/shared/edittweet/edittweet.component';
 import { MessageComponent } from './components/shared/message/message.component';
 import { MatVideoModule } from 'mat-video';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { MatVideoModule } from 'mat-video';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
+    MaterialModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

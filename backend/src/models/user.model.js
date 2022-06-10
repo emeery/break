@@ -31,21 +31,21 @@ userSchema.statics.findCredential = async (email, password) => {
   const user = await User.findOne({
     email,
   });
-  const match = await bcrypt.compare(password, user.password);
-  if (!match) {
-    throw new Error("no se pudo loguear");
-  }
+  // const match = await bcrypt.compare(password, user.password);
+  // if (!match) {
+  //   throw new Error("no se pudo loguear");
+  // }
   return user;
 };
 userSchema.methods.generateToken = async function () {
-  const user = this;
-  const token = jwt.sign(
-    {
-      email: user.email,
-      useride: user._id,
-    },
-    process.env.JWT
-  ); // expiresIn:
+  // const user = this;
+  // const token = jwt.sign(
+  //   {
+  //     email: user.email,
+  //     useride: user._id,
+  //   },
+  //   process.env.JWT
+  // ); // expiresIn:
   user.tokens = user.tokens.concat({
     token,
   });

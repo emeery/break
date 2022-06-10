@@ -1,5 +1,6 @@
 const express = require('express')
 require('./src/db/db')
+require('dotenv').config()
 
 const userRouter = require('./src/routes/user.route')
 const tweetRouter = require('./src/routes/tweet.route')

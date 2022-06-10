@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 const BACKEND_URL = environment.apiUrl + '/user/';
 @Injectable({
   providedIn: 'root'
@@ -18,12 +18,6 @@ export class AuthService {
   getToken() { return this.token; }
   getAutListen() { return this.autListen.asObservable(); }
   getIsAuth() {return this.isAuth; }
-  createUser(nm: string, em: string, ps: string) {
-    const user: User = {name : nm, email: em, password: ps};
-    return this.http.post<{msg: string, user: string}>(
-      BACKEND_URL + 'signup', user)
-      // .subscribe(res => error => { this.autListen.next(false); });
-  }
   loginUser(em: string, ps: string) {
     const user = {email: em, password: ps};
     return this.http.post<{user: string, token: string}>(

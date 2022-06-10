@@ -18,16 +18,16 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-  onSignup(form: FormGroup) {
-    if (form.invalid) return;
-    this.spinner = true;
-    this.autService
-      .createUser(form.value.name, form.value.email, form.value.password)
-      .subscribe(
-        (res) => {
-          this.dlgL.close()
-          this.dlg.open(MessageComponent, { data: { msg: res.msg } })
-        },(error) => (this.spinner = false)
-      );
-  }
+  // onSignup(form: FormGroup) {
+  //   if (form.invalid) return;
+  //   this.spinner = true;
+  //   this.autService
+  //     .createUser(form.value.name, form.value.email, form.value.password)
+  //     .subscribe(
+  //       (res) => {
+  //         this.dlgL.close()
+  //         this.dlg.open(MessageComponent, { data: { msg: res.msg } })
+  //       },(error) => (this.spinner = false)
+  //     );
+  // }
 }

@@ -9,7 +9,7 @@ const auth = async(req, res, next) => {
         req.userr = user;
         next()
     } catch (error) {
-        res.status(401).json({ msg: "Enter your credentials" })
+        res.status(401).json({ msg: "Ingresa tus credenciales" })
     }
 }
 module.exports = auth
