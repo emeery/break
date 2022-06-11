@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-  // onSignup(form: FormGroup) {
+  onSignup(form: FormGroup) {
   //   if (form.invalid) return;
   //   this.spinner = true;
   //   this.autService
@@ -29,5 +29,5 @@ export class SignupComponent implements OnInit {
   //         this.dlg.open(MessageComponent, { data: { msg: res.msg } })
   //       },(error) => (this.spinner = false)
   //     );
-  // }
+  }
 }

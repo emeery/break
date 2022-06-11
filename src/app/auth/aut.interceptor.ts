@@ -12,6 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authServicio: AuthService) {}
   intercept(req: HttpRequest<any>, next: HttpHandler) { // Observable HttpEvent<any>
     const jwt = this.authServicio.getToken();
+    console.log(jwt)
     const authSolicitud = req.clone({
       headers: req.headers.set('authorization', 'Bearer ' + jwt)
     });

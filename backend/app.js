@@ -1,8 +1,8 @@
 const express = require('express')
-require('./src/db/db')
+require('./src/config/db')
 require('dotenv').config()
 
-const userRouter = require('./src/routes/user.route')
+const userRouter = require('./src/routes/auth.route')
 const tweetRouter = require('./src/routes/tweet.route')
 const app = express()
 

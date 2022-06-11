@@ -15,23 +15,39 @@ export class AuthService {
   constructor(
     private http: HttpClient, private router: Router
     ) { }
-  getToken() { return this.token; }
-  getAutListen() { return this.autListen.asObservable(); }
-  getIsAuth() {return this.isAuth; }
-  loginUser(em: string, ps: string) {
-    const user = {email: em, password: ps};
-    return this.http.post<{user: string, token: string}>(
-      BACKEND_URL + 'signin', user)
+
+  getToken() { return this.token }
+
+  getAutListen() { return this.autListen.asObservable() }
+
+  getIsAuth() {return this.isAuth }
+
+  login(email:string) {
+    const user = {email}
+    return this.http.post<{token:string}>(BACKEND_URL + 'signin',user)
     .subscribe(res => {
-      const token = res.token;
-      this.token = token;
-      if (token) {
-        this.isAuth = true;
-        this.autListen.next(true);
-        this.setStorageAuth(token);
+      const token= res.token
+      if(token) {
+        this.token = token
+        this.isAuth = true
+        this.autListen.next(true)
+        this.setStorageAuth(token)
       }
-      this.router.navigate(['/tweets']);
-    }, e => { this.autListen.next(false) });
+      this.router.navigate(['/profile'])
+    },e=>{console.log(e)})
+    // const user = {email: em, password: ps};
+    // return this.http.post<{user: string, token: string}>(
+    //   BACKEND_URL + 'signin', user)
+    // .subscribe(res => {
+    //   const token = res.token;
+    //   this.token = token;
+    //   if (token) {
+    //     this.isAuth = true;
+    //     this.autListen.next(true);
+    //     this.setStorageAuth(token);
+    //   }
+    //   this.router.navigate(['/tweets']);
+    // }, e => { this.autListen.next(false) });
   }
   autUserAuth() {
     const dataAut = this.getStorageAuth()
@@ -60,6 +76,6 @@ export class AuthService {
     this.isAuth = false;
     this.autListen.next(false);
     this.cleanStorageAuth();
-    this.router.navigate(['/start']);
+    this.router.navigate(['/w']);
   }
 }

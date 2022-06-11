@@ -7,23 +7,18 @@ const jwt = require('jsonwebtoken')
 // @desc Autentica un usuario
 // @access PUBLIC
 exports.signin= async(req, res) => {
+  const email = req.body.email
   const date = new Date()
   try {
     const token = jwt.sign({ date: date},"just_a_key")
+    console.log(token)
       res.status(200).json({
-          token,
+          email,
+          token
       })
   } catch (e) { 
       res.status(401).json({ msg: 'hubo error' })
   }
 }
-exports.me = async(req,res) => {
- try {
-  res.json({
-    hello:'hola'
-})
- } catch (error) {
-   
- }
-}
+
 

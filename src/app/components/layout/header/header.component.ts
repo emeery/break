@@ -13,44 +13,36 @@ import { AddtweetComponent } from 'src/app/components/shared/addtweet/addtweet.c
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   watermelon: string;
-  note: string;
-  plus: string;
-  exit: string;
-  user: string;
   isAuth = false;
-  private autSub: Subscription;
+  private authSub: Subscription;
   constructor(
     private dlg: MatDialog,
     public autService: AuthService
   ) { }
   ngOnInit() {
-    this.loadPng();
+    this.watermelon = '../../../assets/images/png/watermelon.png';
     this.isAuth = this.autService.getIsAuth();
-    this.autSub = this.autService.getAutListen()
+    this.authSub = this.autService.getAutListen()
       .subscribe(aut => {
         this.isAuth = aut;
       });
   }
-  loadPng() {
-    this.watermelon = '../../../assets/images/png/watermelon.png';
-    this.note = '../../../assets/images/png/note.png';
-    this.plus = '../../../assets/images/png/plus.png';
-    this.exit = '../../../assets/images/png/exit.png';
-    this.user = '../../../assets/images/png/user.png';
+
+  login() {
+    this.dlg.open(LoginComponent)
   }
+
+
   logout() {
-    this.autService.logout();
+    this.autService.logout()
   }
+
   addTweet() {
-    this.dlg.open(AddtweetComponent);
+    // this.dlg.open(AddtweetComponent)
   }
-  onLogin() {
-    this.dlg.open(LoginComponent);
-  }
-  onSignup() {
-    this.dlg.open(SignupComponent);
-  }
+
+  
   ngOnDestroy() {
-    this.autSub.unsubscribe();
+    this.authSub.unsubscribe()
   }
 }

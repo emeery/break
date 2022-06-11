@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialogRef } from "@angular/material";
-import { FormGroup, NgForm } from "@angular/forms";
+import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
 import { AuthService } from "../auth.service";
 
 @Component({
@@ -9,16 +9,23 @@ import { AuthService } from "../auth.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  tweetForm: FormGroup;
+  form: FormGroup;
   constructor(
-    public autService: AuthService,
+    public authService: AuthService,
+    private formBuilder: FormBuilder,
     private dlgRef: MatDialogRef<LoginComponent>
-  ) {}
+  ) {
+    this.form = this.formBuilder.group({
+      email: ['',[Validators.required, Validators.email]]
+    })
+  }
 
   ngOnInit() {}
-  onSignin(form: NgForm) {
-    if (form.invalid) return;
-    this.autService.loginUser(form.value.email, form.value.password);
-    this.dlgRef.close();
+  
+  login() {
+    console.log(this.form.value)
+    this.authService.login(this.form.value.email)
+    this.form.reset()
+    this.dlgRef.close()
   }
 }

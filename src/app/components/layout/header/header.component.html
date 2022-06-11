@@ -1,44 +1,16 @@
 <mat-toolbar>
-    <span>
-  <a id="poke" routerLink="/">
-    <!-- <mat-icon svgIcon="icono-pokeball"></mat-icon> -->
-    <img style="width: 30px;height:30px" [src]="watermelon" />
-  </a>
-</span>
-    <span class="spacer"></span>
-    <ul>
-        <li *ngIf="isAuth">
-          <!-- routerLink="/profile" -->
-            <a mat-button >
-                <img style="width: 30px;height:30px" [src]="user" />
-            </a>
-        </li>
-        <!-- <li *ngIf="isAut">
-            <a (click)="addTweet()" mat-button>
-                <img style="width: 30px;height:30px" [src]="plus" />
-            </a>
-        </li> -->
-        <li *ngIf="isAuth">
-            <a mat-button routerLink="/tweets">
-                <img style="width: 30px;height:30px" [src]="note" />
-            </a>
-        </li>
-        <li *ngIf="isAuth">
-            <a (click)="logout()" mat-button>
-              Salir
-          </a>
-        </li>
-        <li *ngIf="!isAuth">
-            <a class="o" (click)="onSignup()" mat-button>
-                <!-- <img style="width: 30px;height:30px" [src]="in" /> -->
-                REGISTRO
-            </a>
-        </li>
-        <li *ngIf="!isAuth">
-            <a class="o" (click)="onLogin()" mat-button>
-                <!-- <img style="width: 30px;height:30px" [src]="signup" /> -->
-                ENTRAR
-            </a>
-        </li>
-    </ul>
+  <span>
+    <a routerLink="/">
+      <img style="width: 30px; height: 30px" [src]="watermelon" />
+    </a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="isAuth">
+      <a class="o" (click)="logout()" mat-button> SALIR </a>
+    </li>
+    <li *ngIf="!isAuth">
+      <a class="o" (click)="login()" mat-button> ENTRAR </a>
+    </li>
+  </ul>
 </mat-toolbar>
