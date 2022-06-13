@@ -8,7 +8,7 @@ import { ProfileComponent } from '../components/pages/profile/profile.component'
 const rutas: Routes = [
     {path: '', redirectTo: 'w', pathMatch: 'full'},
     {path: 'w', component: DashboardComponent},
-    {path: 'profile', component: ProfileComponent},
+    {path: 'profile',canActivate: [AuthGuard], component: ProfileComponent},
     // {path: 'tweets',canActivate: [AuthGuard], component: TweetsComponent},
     {path: '**', redirectTo: 'w'} //
   ];

@@ -8,7 +8,7 @@ import { AddtweetComponent } from '../../shared/addtweet/addtweet.component';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  location: string; // png
+  location: string; 
   calendar: string;
   constructor(public dlg: MatDialog) {}
 

@@ -57,7 +57,7 @@ export class AuthService {
       this.token = dataAut.token;
       this.isAuth = true;
       this.autListen.next(true)
-      this.router.navigate(['/tweets'])
+      this.router.navigate(['/profile'])
     }
   }
   setStorageAuth(token: string) {
