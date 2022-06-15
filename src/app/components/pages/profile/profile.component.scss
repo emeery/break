@@ -1,74 +1,94 @@
 @import "../../../styles/vars";
 .container {
-    width: 100%;
-    height: 230px;
-    background: url('../../../../assets/images/wall.jpg') no-repeat;
-    background-size: cover;
+  width: 100%;
+  height: 230px;
+  background: url("../../../../assets/images/wall.jpg") no-repeat;
+  background-size: cover;
 }
 
-.p {
-    width: 190px;
-    height: 190px;
-    background: yellow;
-    border: 3px solid #222429;
-    border-radius: 50%;
-    background: url('../../../../assets/images/png/avatar.png') no-repeat;
-    background-size: cover;
-    position: relative;
-    top: -350px;
-    z-index: 1;
-    left: 20px;
-}
-
-
-img {
-    width: 50px;
-    height: 50px
-}
-
-
-
-.mat-card {
-    margin-top: 20px;
-    width: 100%;
-    background: rgb(34, 36, 41);
-}
-
-.mat-grid-list {
-    margin-top: 85px;
-    height: 170px;
+.avatar {
+  width: 190px;
+  height: 190px;
+  border: 3px solid #222429;
+  border-radius: 50%;
+  background: url("../../../../assets/images/png/avatar.png") no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 175px;
+  z-index: 1;
+  left: 20px;
 }
 
 .name {
-    font-family: $osw;
-    color: $dg;
-    font-size: large;
-    text-align: left;
+  font-family: $osw;
+  color: $lb;
+  font-size: larger;
+  text-align: left;
 }
 
 .profile {
-    font-family: $osw;
-    color: $ab;
-    text-align: left;
+  font-family: $osw;
+  color: $dg;
+  text-align: left;
 }
 
 .code {
-    font-family: $osw;
-    color: blanchedalmond;
-    text-align: left;
+  font-family: $osw;
+  color: blanchedalmond;
+  text-align: left;
 }
 
-.y {
-    font-family: $osw;
-    color: lightgray;
-    font-size: 3vw;
-    text-align: left;
-    display: flex;
-    justify-content: space-around;
+mat-grid-list {
+  background-color: #222429;
 }
 
-.alias {
-    color: silver;
-    font-size: 3vw;
-    margin-bottom: 10px;
+.vocational {
+  font-family: $osw;
+  color: $lb;
+  font-size: large;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.profession {
+  font-family: $osw;
+  color: $dg;
+  font-size: large;
+
+  mat-card {
+    background: #222429;
+    font-family: $osw;
+  }
+
+  mat-card-title {
+    font-size: medium;
+    color: powderblue;
+    span {color:cadetblue;}
+  }
+  mat-card-subtitle {
+    color: cornflowerblue;
+  }
+  mat-card-content {
+    font-size: 15px;
+    color: darkgray;
+  }
+  span {
+    font-size: smaller;
+    color: $dg;
+  }
+}
+
+.chip-ang {
+  background-color: crimson;
+  color: #fff;
+}
+
+.chip-node {
+  background-color: #83ba00;
+  color: #fff;
+}
+
+.chip-rx {
+  background-color: #e91d8e;
+  color: #fff;
 }

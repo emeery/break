@@ -14,7 +14,7 @@ export class AuthService {
   private autListen = new Subject<boolean>();
   constructor(
     private http: HttpClient, private router: Router
-    ) { }
+    ) {}
 
   getToken() { return this.token }
 
@@ -34,24 +34,12 @@ export class AuthService {
         this.setStorageAuth(token)
       }
       this.router.navigate(['/profile'])
-    },e=>{console.log(e)})
-    // const user = {email: em, password: ps};
-    // return this.http.post<{user: string, token: string}>(
-    //   BACKEND_URL + 'signin', user)
-    // .subscribe(res => {
-    //   const token = res.token;
-    //   this.token = token;
-    //   if (token) {
-    //     this.isAuth = true;
-    //     this.autListen.next(true);
-    //     this.setStorageAuth(token);
-    //   }
-    //   this.router.navigate(['/tweets']);
-    // }, e => { this.autListen.next(false) });
+    }, e => this.autListen.next(false))
   }
+
   autUserAuth() {
     const dataAut = this.getStorageAuth()
-    if(!dataAut) return;
+    if(!dataAut) return; // si no existe el token en el storage detiene la ejecucion de la función
     const token = dataAut.token;
     if(token) {
       this.token = dataAut.token;
@@ -60,22 +48,26 @@ export class AuthService {
       this.router.navigate(['/profile'])
     }
   }
+
   setStorageAuth(token: string) {
     localStorage.setItem('token',token)
   }
+
   getStorageAuth() {
     const t = localStorage.getItem('token')
-    if(!t) return;
+    if(!t) return
     return {token: t}
   }
+
   cleanStorageAuth() {
     localStorage.removeItem('token')
   }
+
   logout() {
-    this.token = null;
-    this.isAuth = false;
-    this.autListen.next(false);
-    this.cleanStorageAuth();
-    this.router.navigate(['/w']);
+    this.token = null
+    this.isAuth = false
+    this.autListen.next(false)
+    this.cleanStorageAuth()
+    this.router.navigate(['/w'])
   }
 }

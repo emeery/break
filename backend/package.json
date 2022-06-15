@@ -4,9 +4,6 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
-  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",

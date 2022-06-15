@@ -2,21 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './routes/app.routing.module';
 import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppRoutingModule } from './routes/app.routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
-
-
-import { TweetsComponent } from './components/pages/tweets/tweets.component';
-
-import { AddtweetComponent } from './components/shared/addtweet/addtweet.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './components/layout/dashboard/dashboard.component';
-import { AuthInterceptor} from './auth/aut.interceptor';
 import { ProfileComponent } from './components/pages/profile/profile.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthInterceptor} from './auth/aut.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { ErrorComponent } from './components/layout/error/error.component';
 import { EdittweetComponent } from './components/shared/edittweet/edittweet.component';
@@ -28,11 +22,7 @@ import { MaterialModule } from './material.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    TweetsComponent,
-    AddtweetComponent,
-    SignupComponent,
     LoginComponent,
-    EdittweetComponent,
     DashboardComponent,
     ProfileComponent,
     ErrorComponent,
@@ -45,14 +35,13 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    MatVideoModule
+    FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
-  entryComponents: [ ErrorComponent, AddtweetComponent, EdittweetComponent, LoginComponent, SignupComponent, MessageComponent],
+  entryComponents: [ ErrorComponent, EdittweetComponent, LoginComponent, MessageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,10 +12,9 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ) { }
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
-    const estaAut = this.autService.getIsAuth();
-    console.log('estaauth',estaAut)
+    const estaAut = this.autService.getIsAuth()
     if (!estaAut) {
-      this.router.navigate(['/']); // bg
+      this.router.navigate(['/'])
     }
     return estaAut;
   }

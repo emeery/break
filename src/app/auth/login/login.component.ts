@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
   
   login() {
-    console.log(this.form.value)
     this.authService.login(this.form.value.email)
     this.form.reset()
     this.dlgRef.close()

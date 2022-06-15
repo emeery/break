@@ -3,7 +3,6 @@ require('./src/config/db')
 require('dotenv').config()
 
 const userRouter = require('./src/routes/auth.route')
-const tweetRouter = require('./src/routes/tweet.route')
 const app = express()
 
 app.use(express.json())
@@ -20,5 +19,6 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/user', userRouter)
-app.use('/tweet', tweetRouter)
-app.listen(process.env.PORT);
+app.listen(process.env.PORT)
+
+console.log(process.env.USERNAME);

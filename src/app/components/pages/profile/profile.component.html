@@ -1,32 +1,63 @@
 <div class="container"></div>
-<mat-grid-list cols="2" rowHeight="190px">
-    <mat-grid-tile style="background: rgb(34, 36, 41);">
-        <mat-card>
-            <div class="name">
-                ING. GERARDO MANUEL BAUTISTA
-            </div>
-            <div class="profile">
-                DESARROLLADOR FRONT-END ANGULAR
-            </div>
-            <div class="code">
-                ANGULAR+2, JAVASCRIPT , RxJS, NODEJS, GIT, CI/CD
-            </div>
-            <!-- <div class="y">
-                <div><img style="width: 20px;height:20px" [src]="location" />
-                    <span>CDMX</span>
-                </div>
-                <div><img style="width: 20px;height:20px" [src]="calendar" />
-                    <span>31 AÑOS</span>
-                </div>
-            </div> -->
-        </mat-card>
+<div class="avatar"></div>
+<mat-card style="background-color: #222429; margin-top: 5rem">
+  <div class="name">GERARDO MANUEL BAUTISTA</div>
+  <div class="profile">DESARROLLADOR FRONT-END ANGULAR</div>
+  <div class="code">
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip class="chip-ang">Angular+2</mat-chip>
+      <mat-chip class="chip-node">NodeJS</mat-chip>
+      <mat-chip selected>TypeScript</mat-chip>
+      <mat-chip class="chip-rx">RxJS</mat-chip>
+      <mat-chip>Git</mat-chip>
+    </mat-chip-list>
+  </div>
+</mat-card>
+<div class="profession">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title> Desarrollador Angular - <span>TOTALPLAY</span></mat-card-title>
+        <mat-card-subtitle>Diciembre 2021 - Mayo 2022</mat-card-subtitle>
+        <mat-card-content>
+          Desarrollo de Cotizador Empresarial para soluciones en servicios de telecomunicación
+          con Angular+11, RxJS, Material y Bootstrap. Integración Continua y Git
+        </mat-card-content>
+      </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
-        <!-- <mat-card>
-          <h2 class="mat-h2">INGENIERO EN COMPUTACIÓN</h2>
-          <h3 class="mat-h2">FACULTAD DE ESTUDIOS SUPERIORES ARAGÓN</h3>
-        </mat-card> -->
-
+      <mat-card>
+        <mat-card-title> Desarrollador Angular - <span>TE CREEMOS</span></mat-card-title>
+        <mat-card-subtitle>Agosto 2020 - Octubre 2021</mat-card-subtitle>
+        <mat-card-content>
+          Desarrollo de sistema de Cajas para operaciones bancarias como aperturas, 
+          manejo de efectivo, cobros, desembolsos etc ..
+          con Angular+8, Material y CSS
+        </mat-card-content>
+      </mat-card>
     </mat-grid-tile>
-</mat-grid-list>
-<div class="p"></div>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title> Programador WEB JavaScript - <span>IBUSHAK</span></mat-card-title>
+        <mat-card-subtitle>Septiembre 2019 - Abril 2019</mat-card-subtitle>
+        <mat-card-content>
+          Creación de tablas dinamicas con JavaScript en Netsuite (Oracle), con filtrado,
+          selección y paginado.
+          Portal hecho con Angular+8 para acceso de usuarios 
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title> Desarrollador Angular - <span>AHORRA SEGUROS</span></mat-card-title>
+        <mat-card-subtitle>Febrero 2019 - Diciembre 2019</mat-card-subtitle>
+        <mat-card-content>
+          Creación de Dashboard para el manejo y control de personal
+          interno, validacion de la información, consumo de APIs, uso de RxJS
+          para manipulación estructuras de datos de manera asincrona,
+          base de datos relacionales, 
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
