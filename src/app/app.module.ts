@@ -13,9 +13,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthInterceptor} from './auth/aut.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { ErrorComponent } from './components/layout/error/error.component';
-import { EdittweetComponent } from './components/shared/edittweet/edittweet.component';
 import { MessageComponent } from './components/shared/message/message.component';
-import { MatVideoModule } from 'mat-video';
 import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -41,7 +39,7 @@ import { MaterialModule } from './material.module';
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
-  entryComponents: [ ErrorComponent, EdittweetComponent, LoginComponent, MessageComponent],
+  entryComponents: [ LoginComponent, ErrorComponent, , MessageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

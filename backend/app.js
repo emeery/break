@@ -1,6 +1,6 @@
 const express = require('express')
 require('./src/config/db')
-require('dotenv').config()
+// require('dotenv').config()
 
 const userRouter = require('./src/routes/auth.route')
 const app = express()
@@ -20,5 +20,3 @@ app.use((req, res, next) => {
 });
 app.use('/user', userRouter)
 app.listen(process.env.PORT)
-
-console.log(process.env.USERNAME);

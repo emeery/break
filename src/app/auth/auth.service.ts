@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from './user.model';
+// import { User } from './user.model';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -56,7 +56,7 @@ export class AuthService {
   getStorageAuth() {
     const t = localStorage.getItem('token')
     if(!t) return
-    return {token: t}
+    return {token: t }
   }
 
   cleanStorageAuth() {

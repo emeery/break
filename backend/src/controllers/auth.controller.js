@@ -1,6 +1,4 @@
-const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
-
 
 // @route POST auth/signin
 // @desc Autentica un usuario

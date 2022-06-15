@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { AddtweetComponent } from '../../shared/addtweet/addtweet.component';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +15,5 @@ export class ProfileComponent implements OnInit {
     this.location = '../../../assets/images/png/pin.png';
     this.calendar = '../../../assets/images/png/calendar.png';
   }
-  addTweet(): void {
-   const dlgRef = this.dlg.open(AddtweetComponent);
-  }
+
 }
